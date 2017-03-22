@@ -1,0 +1,5 @@
+vendor/
+var/*
+!var/.gitkeep
+app/parameters.yml
+web/lib/

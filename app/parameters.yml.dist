@@ -1,0 +1,5 @@
+parameters:
+    driver: pdo_mysql
+    user: root
+    password: ''
+    dbname: ''

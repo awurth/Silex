@@ -1,0 +1,40 @@
+{
+    "name": "awurth/silex",
+    "description": "Silex micro-framework boilerplate",
+    "keywords": ["silex", "framework", "boilerplate", "skeleton"],
+    "homepage": "https://github.com/awurth/silex",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexis Wurth",
+            "email": "alexis.wurth57@gmail.com",
+            "homepage": "https://github.com/awurth"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App"
+        }
+    },
+    "require": {
+        "silex/silex": "^2.0",
+        "incenteev/composer-parameter-handler": "^2.1",
+        "monolog/monolog": "^1.22",
+        "twig/twig": "^2.2",
+        "symfony/twig-bridge": "^3.2",
+        "symfony/asset": "^3.2"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters"
+        ]
+    },
+    "extra": {
+        "incenteev-parameters": {
+            "file": "app/parameters.yml"
+        }
+    }
+}
