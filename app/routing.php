@@ -1,3 +1,3 @@
 <?php
 
-$app->get('/', 'app.controller:home');
+$app->get('/', 'app.controller:home')->bind('home');
