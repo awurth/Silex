@@ -2,5 +2,4 @@
 
 ## TODO
 - Gulp
-- Doctrine
 - Security
