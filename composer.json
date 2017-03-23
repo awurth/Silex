@@ -31,7 +31,11 @@
         "saxulum/saxulum-console": "^3.1",
         "silex/web-profiler": "^2.0",
         "symfony/monolog-bridge": "^3.2",
-        "symfony/debug-bundle": "^3.2"
+        "symfony/debug-bundle": "^3.2",
+        "symfony/validator": "^3.2",
+        "symfony/form": "^3.2",
+        "symfony/security-csrf": "^3.2",
+        "symfony/translation": "^3.2"
     },
     "scripts": {
         "post-install-cmd": [

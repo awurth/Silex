@@ -2,7 +2,9 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = new Silex\Application();
+$app = new Silex\Application([
+    'debug' => true
+]);
 
 require __DIR__ . '/../app/dependencies.php';
 

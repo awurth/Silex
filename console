@@ -6,7 +6,9 @@ require __DIR__ . '/vendor/autoload.php';
 use Silex\Application;
 use Saxulum\Console\Provider\ConsoleProvider;
 
-$app = new Application();
+$app = new Application([
+    'debug' => true
+]);
 
 $app->register(new ConsoleProvider());
 
