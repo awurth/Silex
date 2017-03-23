@@ -1,6 +1,8 @@
 <?php
 
 use Symfony\Component\Yaml\Yaml;
+
+use Silex\Provider\WebProfilerServiceProvider;
 use Silex\Provider\VarDumperServiceProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -8,6 +10,7 @@ use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
 
@@ -44,6 +47,8 @@ $app->register(new DoctrineOrmServiceProvider(), [
 
 $app->register(new DoctrineOrmManagerRegistryProvider());
 
+$app->register(new HttpFragmentServiceProvider());
+
 $app->register(new TwigServiceProvider(), [
     'twig.path' => ROOT_DIR . 'src/App/Resources/views',
     'twig.options' => [
@@ -55,4 +60,8 @@ $app->register(new TwigServiceProvider(), [
 
 $app->register(new AssetServiceProvider(), [
     'assets.version' => 'v1'
+]);
+
+$app->register(new WebProfilerServiceProvider(), [
+    'profiler.cache_dir' => ROOT_DIR . 'var/cache/profiler'
 ]);
