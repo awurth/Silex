@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManager;
 use Pimple\Container;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Twig_Environment;
@@ -15,11 +16,21 @@ class Controller
     /**
      * @var Container
      */
-    private $container;
+    protected $container;
 
     public function __construct(Container $container)
     {
         $this->container = $container;
+    }
+
+    /**
+     * Get Doctrine Entity Manager
+     *
+     * @return EntityManager
+     */
+    public function getEntityManager()
+    {
+        return $this->container['orm.em'];
     }
 
     /**
