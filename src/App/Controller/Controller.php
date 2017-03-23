@@ -46,6 +46,17 @@ class Controller
     }
 
     /**
+     * Add a flash message for type
+     *
+     * @param string $type
+     * @param string $message
+     */
+    public function flash($type, $message)
+    {
+        $this->application['session']->getFlashBag()->add($type, $message);
+    }
+
+    /**
      * @param string $service The service name
      * @return mixed
      */

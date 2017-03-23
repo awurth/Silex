@@ -1,0 +1,21 @@
+{# Check if we got some flash messages #}
+{% if app.session.flashbag.peekAll()|length > 0 %}
+    <div class="ui container flash">
+        {# Loop all types of flash messages #}
+        {% for type, messages in app.session.flashbag.all() %}
+            <div class="ui {{ type }} message">
+                <i class="close icon"></i>
+                {% if messages|length > 1 %}
+                    <ul class="list">
+                        {# For all flash messages with this type #}
+                        {% for idx, message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>{{ messages|first }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
