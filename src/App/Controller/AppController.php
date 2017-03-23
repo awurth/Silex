@@ -8,6 +8,6 @@ class AppController extends Controller
 {
     public function home()
     {
-        return $this->twig->render('App/home.twig');
+        return $this->render('App/home.twig');
     }
 }

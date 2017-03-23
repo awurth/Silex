@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Doctrine\ORM\EntityManager;
-use Pimple\Container;
+use Silex\Application;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Twig_Environment;
 
@@ -14,13 +14,13 @@ use Twig_Environment;
 class Controller
 {
     /**
-     * @var Container
+     * @var Application
      */
-    protected $container;
+    protected $application;
 
-    public function __construct(Container $container)
+    public function __construct(Application $app)
     {
-        $this->container = $container;
+        $this->application = $app;
     }
 
     /**
@@ -30,7 +30,7 @@ class Controller
      */
     public function getEntityManager()
     {
-        return $this->container['orm.em'];
+        return $this->application['orm.em'];
     }
 
     /**
@@ -42,11 +42,20 @@ class Controller
      */
     public function render($name, array $context = [])
     {
-        return $this->twig->render($name, $context);
+        return $this->application['twig']->render($name, $context);
+    }
+
+    /**
+     * @param string $service The service name
+     * @return mixed
+     */
+    public function get($service)
+    {
+        return $this->application[$service];
     }
 
     public function __get($property)
     {
-        return $this->container[$property];
+        return $this->application[$property];
     }
 }
