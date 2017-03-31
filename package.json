@@ -1,0 +1,20 @@
+{
+  "name": "silex",
+  "version": "1.0.0",
+  "description": "Silex micro-framework boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awurth/silex.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/awurth/silex#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1"
+  }
+}

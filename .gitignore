@@ -1,5 +1,10 @@
 vendor/
+node_modules/
 var/*
 !var/.gitkeep
 app/parameters.yml
 web/lib/
+web/css/*
+web/js/*
+!web/css/.gitkeep
+!web/js/.gitkeep
