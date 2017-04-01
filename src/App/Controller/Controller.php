@@ -128,6 +128,23 @@ class Controller
     }
 
     /**
+     * Get current authenticated user
+     *
+     * @return mixed
+     */
+    public function getUser()
+    {
+        $token = $this->application['security.token_storage']->getToken();
+
+        return null !== $token ? $token->getUser() : null;
+    }
+
+    public function isGranted($role)
+    {
+        return $this->application['security.authorization_checker']->isGranted($role);
+    }
+
+    /**
      * Get a service from the container
      *
      * @param string $service The service name

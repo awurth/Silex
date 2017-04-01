@@ -16,6 +16,7 @@ use Silex\Provider\DoctrineServiceProvider;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
 
@@ -63,6 +64,32 @@ $app->register(new DoctrineOrmServiceProvider(), [
 $app->register(new DoctrineOrmManagerRegistryProvider());
 
 $app->register(new HttpFragmentServiceProvider());
+
+$app->register(new SecurityServiceProvider(), [
+    'security.role_hierarchy' => [
+        'ROLE_ADMIN' => [
+            'ROLE_USER',
+            'ROLE_ALLOWED_TO_SWITCH'
+        ]
+    ],
+    'security.firewalls' => [
+        'login' => [
+            'pattern' => '^/login$'
+        ],
+        'secured' => [
+            'pattern' => '^/',
+            'form' => [
+                'login_path' => '/login',
+                'check_path' => '/login_check'
+            ],
+            'logout' => [
+                'logout_path' => '/logout',
+                'invalidate_session' => true
+            ],
+            'anonymous' => true
+        ]
+    ]
+]);
 
 $app->register(new TwigServiceProvider(), [
     'twig.path' => ROOT_DIR . 'src/App/Resources/views',
