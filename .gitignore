@@ -1,7 +1,12 @@
 vendor/
 node_modules/
 var/*
-!var/.gitkeep
+!var/cache
+var/cache/*
+!var/cache/.gitkeep
+!var/logs
+var/logs/*
+!var/logs/.gitkeep
 app/parameters.yml
 web/lib/
 web/css/*

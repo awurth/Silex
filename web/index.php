@@ -6,7 +6,7 @@ $app = new Silex\Application([
     'debug' => true
 ]);
 
-require __DIR__ . '/../app/dependencies.php';
+require __DIR__ . '/../app/providers.php';
 
 require __DIR__ . '/../app/controllers.php';
 
