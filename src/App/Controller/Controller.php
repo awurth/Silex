@@ -139,6 +139,13 @@ class Controller
         return null !== $token ? $token->getUser() : null;
     }
 
+    /**
+     * Check if user is granted role $role
+     *
+     * @param string $role
+     *
+     * @return bool
+     */
     public function isGranted($role)
     {
         return $this->application['security.authorization_checker']->isGranted($role);
