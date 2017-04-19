@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "34da5075cb025ec19ddc95f8ef0de822",
+    "content-hash": "dd563a17c6d712fdb16bd52f17925eaf",
     "packages": [
         {
             "name": "dflydev/doctrine-orm-service-provider",
@@ -1246,17 +1246,16 @@
         },
         {
             "name": "silex/web-profiler",
-            "version": "v2.0.5",
-            "target-dir": "Silex/Provider",
+            "version": "v2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex-WebProfiler.git",
-                "reference": "b44c4c8e70a43eb5e98372cffbeb6de3770c5805"
+                "reference": "77823025d684ffcb8800382f7a38894aebd1e693"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/b44c4c8e70a43eb5e98372cffbeb6de3770c5805",
-                "reference": "b44c4c8e70a43eb5e98372cffbeb6de3770c5805",
+                "url": "https://api.github.com/repos/silexphp/Silex-WebProfiler/zipball/77823025d684ffcb8800382f7a38894aebd1e693",
+                "reference": "77823025d684ffcb8800382f7a38894aebd1e693",
                 "shasum": ""
             },
             "require": {
@@ -1272,6 +1271,7 @@
                 "symfony/browser-kit": "^2.8|^3.0",
                 "symfony/css-selector": "^2.8|^3.0",
                 "symfony/debug-bundle": "^2.8|^3.0",
+                "symfony/phpunit-bridge": "~3.2",
                 "symfony/security": "^2.8|^3.0",
                 "symfony/security-bundle": "^2.8|^3.0",
                 "symfony/translation": "^2.8|^3.0"
@@ -1283,7 +1283,7 @@
                 }
             },
             "autoload": {
-                "psr-0": {
+                "psr-4": {
                     "Silex\\Provider\\": ""
                 }
             },
@@ -1299,7 +1299,7 @@
             ],
             "description": "A WebProfiler for Silex",
             "homepage": "http://silex.sensiolabs.org/",
-            "time": "2016-11-21T23:51:53+00:00"
+            "time": "2017-04-08T17:30:17+00:00"
         },
         {
             "name": "symfony/asset",
