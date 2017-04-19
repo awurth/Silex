@@ -50,5 +50,8 @@
         "incenteev-parameters": {
             "file": "app/parameters.yml"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
     }
 }
