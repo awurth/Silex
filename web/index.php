@@ -1,10 +1,10 @@
 <?php
 
+use Silex\Application;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = new Silex\Application([
-    'debug' => true
-]);
+$app = new Application();
 
 require __DIR__ . '/../app/providers.php';
 
