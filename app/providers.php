@@ -18,6 +18,8 @@ use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
 
+use App\Provider\UserProvider;
+
 const ROOT_DIR = __DIR__ . '/../';
 
 $parameters = Yaml::parse(file_get_contents(__DIR__ . '/parameters.yml'))['parameters'];
@@ -84,7 +86,10 @@ $app->register(new SecurityServiceProvider(), [
             ],
             'anonymous' => true
         ]
-    ]
+    ],
+    'users' => function () use ($app) {
+        return new UserProvider($app);
+    }
 ]);
 
 $app->register(new TwigServiceProvider(), [
