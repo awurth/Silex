@@ -1,0 +1,17 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+<div class="ui container">
+    {{ form_start(form, { 'attr': { 'class': 'ui form error' } }) }}
+        {{ form_row(form.username) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password.password) }}
+        {{ form_row(form.password.confirm_password) }}
+
+        {{ form_rest(form) }}
+        <input type="submit" class="ui teal button">
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

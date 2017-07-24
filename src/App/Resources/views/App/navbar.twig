@@ -1,18 +1,18 @@
 <nav class="ui borderless top fixed menu">
     <a href="{{ path('home') }}" class="header item">Silex skeleton</a>
     <div class="right menu">
-        {# if auth.check() %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="header item">{{ auth.user.username }}</div>
             <div class="item">
                 <a href="{{ path('logout') }}" class="ui teal circular button">Logout</a>
             </div>
-        {% else #}
+        {% else %}
             <div class="item">
                 <a href="{{ path('login') }}" class="ui circular button">Login</a>
             </div>
             <div class="item">
-                <a href="{{ path('home') }}" class="ui teal circular button">Register</a>
+                <a href="{{ path('register') }}" class="ui teal circular button">Register</a>
             </div>
-        {# endif #}
+        {% endif %}
     </div>
 </nav>
