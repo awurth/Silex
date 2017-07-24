@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class AppController extends Controller
 {
-    public function home()
+    public function homeAction()
     {
         return $this->render('App/home.twig');
     }
