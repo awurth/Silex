@@ -1,7 +1,12 @@
 <?php
 
+use AWurth\SilexUser\Provider\SilexUserServiceProvider;
+use AWurth\SilexUser\Provider\UserProvider;
 use Symfony\Component\Yaml\Yaml;
+use Security\Entity\User;
 
+use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
+use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
@@ -11,14 +16,10 @@ use Silex\Provider\CsrfServiceProvider;
 use Silex\Provider\LocaleServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
-use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
-use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
-
-use App\Provider\UserProvider;
 
 const ROOT_DIR = __DIR__ . '/../';
 
@@ -54,6 +55,11 @@ $app->register(new DoctrineOrmServiceProvider(), [
                 'namespace' => 'App\Entity',
                 'path' => ROOT_DIR . 'src/App/Entity',
                 'use_simple_annotation_reader' => false
+            ], [
+                'type' => 'annotation',
+                'namespace' => 'Security\Entity',
+                'path' => ROOT_DIR . 'src/Security/Entity',
+                'use_simple_annotation_reader' => false
             ]
         ]
     ]
@@ -71,9 +77,6 @@ $app->register(new SecurityServiceProvider(), [
         ]
     ],
     'security.firewalls' => [
-        'login' => [
-            'pattern' => '^/login$'
-        ],
         'secured' => [
             'pattern' => '^/',
             'form' => [
@@ -84,16 +87,19 @@ $app->register(new SecurityServiceProvider(), [
                 'logout_path' => '/logout',
                 'invalidate_session' => true
             ],
-            'anonymous' => true
+            'anonymous' => true,
+            'users' => function () use ($app) {
+                return new UserProvider($app);
+            }
         ]
-    ],
-    'users' => function () use ($app) {
-        return new UserProvider($app);
-    }
+    ]
 ]);
 
 $app->register(new TwigServiceProvider(), [
-    'twig.path' => ROOT_DIR . 'src/App/Resources/views',
+    'twig.path' => [
+        ROOT_DIR . 'src/App/Resources/views',
+        ROOT_DIR . 'src/Security/Resources/views'
+    ],
     'twig.options' => [
         'cache' => ROOT_DIR . 'var/cache/twig',
         'debug' => true,
@@ -103,4 +109,9 @@ $app->register(new TwigServiceProvider(), [
 
 $app->register(new AssetServiceProvider(), [
     'assets.version' => 'v1'
+]);
+
+$app->register(new SilexUserServiceProvider(), [
+    'silex_user.user_class' => User::class,
+    'silex_user.overwrite_templates' => true
 ]);

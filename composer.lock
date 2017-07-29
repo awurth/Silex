@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d152da95913faf8b2ab41b1aaec3e31c",
+    "content-hash": "8252256846129b1164251cc1c6ee7e79",
     "packages": [
+        {
+            "name": "awurth/silex-user",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awurth/silex-user.git",
+                "reference": "e3cdcea3e77edfc9dc593458adf0ca448731acd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awurth/silex-user/zipball/e3cdcea3e77edfc9dc593458adf0ca448731acd0",
+                "reference": "e3cdcea3e77edfc9dc593458adf0ca448731acd0",
+                "shasum": ""
+            },
+            "require": {
+                "dflydev/doctrine-orm-service-provider": "^2.0",
+                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "^3.1",
+                "silex/silex": "^2.2",
+                "symfony/doctrine-bridge": "^3.3",
+                "symfony/form": "^3.3",
+                "symfony/security": "^3.3",
+                "symfony/validator": "^3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AWurth\\SilexUser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexis Wurth",
+                    "email": "alexis.wurth57@gmail.com"
+                }
+            ],
+            "description": "A user provider for Silex",
+            "time": "2017-07-29T11:24:48+00:00"
+        },
         {
             "name": "dflydev/doctrine-orm-service-provider",
             "version": "v2.0.1",
@@ -347,16 +389,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "498760e55195ccaf08076cb9100a2972ba74c001"
+                "reference": "1a086f853425b1f5349775ce57e45a772d2d2ba5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/498760e55195ccaf08076cb9100a2972ba74c001",
-                "reference": "498760e55195ccaf08076cb9100a2972ba74c001",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/1a086f853425b1f5349775ce57e45a772d2d2ba5",
+                "reference": "1a086f853425b1f5349775ce57e45a772d2d2ba5",
                 "shasum": ""
             },
             "require": {
@@ -416,7 +458,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2017-07-23T01:02:22+00:00"
+            "time": "2017-07-28T10:40:18+00:00"
         },
         {
             "name": "doctrine/inflector",

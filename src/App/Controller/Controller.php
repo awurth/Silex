@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Provider\UserProvider;
 use Doctrine\ORM\EntityManager;
 use Silex\Application;
 use Symfony\Component\Form\FormFactory;
@@ -18,7 +17,6 @@ use Twig_Environment;
  * @property RecursiveValidator validator
  * @property Twig_Environment twig
  * @property UrlGenerator url_generator
- * @property UserProvider users
  */
 class Controller
 {

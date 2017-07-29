@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ parent() }} - Login{% endblock %}
+
+{% block body %}
+
+<form action="{{ path('login_check') }}" method="POST">
+    {{ error }}
+    <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}">
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="_password" value="">
+    </div>
+
+    <input type="submit">
+</form>
+
+{% endblock %}

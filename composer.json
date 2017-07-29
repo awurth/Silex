@@ -13,10 +13,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "App\\": "src/App"
+            "App\\": "src/App",
+            "Security\\": "src/Security"
         }
     },
     "require": {
+        "awurth/silex-user": "^0.1.0",
         "dflydev/doctrine-orm-service-provider": "^2.0",
         "doctrine/dbal": "^2.5",
         "incenteev/composer-parameter-handler": "^2.1",
