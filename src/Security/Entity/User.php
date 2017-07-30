@@ -4,7 +4,6 @@ namespace Security\Entity;
 
 use AWurth\SilexUser\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
 
 /**
  * @ORM\Entity
@@ -12,5 +11,4 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
  */
 class User extends BaseUser
 {
-
 }
