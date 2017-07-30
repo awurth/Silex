@@ -4,25 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8252256846129b1164251cc1c6ee7e79",
+    "content-hash": "d0797bace1d26cc6cd68d11d1af9a664",
     "packages": [
         {
             "name": "awurth/silex-user",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awurth/silex-user.git",
-                "reference": "e3cdcea3e77edfc9dc593458adf0ca448731acd0"
+                "reference": "aa45724104e360f5b17aa63729b3eb8f816e4de0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awurth/silex-user/zipball/e3cdcea3e77edfc9dc593458adf0ca448731acd0",
-                "reference": "e3cdcea3e77edfc9dc593458adf0ca448731acd0",
+                "url": "https://api.github.com/repos/awurth/silex-user/zipball/aa45724104e360f5b17aa63729b3eb8f816e4de0",
+                "reference": "aa45724104e360f5b17aa63729b3eb8f816e4de0",
                 "shasum": ""
             },
             "require": {
-                "dflydev/doctrine-orm-service-provider": "^2.0",
-                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "^3.1",
+                "doctrine/orm": "^2.3",
                 "silex/silex": "^2.2",
                 "symfony/doctrine-bridge": "^3.3",
                 "symfony/form": "^3.3",
@@ -46,7 +45,7 @@
                 }
             ],
             "description": "A user provider for Silex",
-            "time": "2017-07-29T11:24:48+00:00"
+            "time": "2017-07-30T14:32:56+00:00"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",
