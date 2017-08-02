@@ -113,5 +113,6 @@ $app->register(new AssetServiceProvider(), [
 
 $app->register(new SilexUserServiceProvider(), [
     'silex_user.user_class' => User::class,
-    'silex_user.overwrite_templates' => true
+    'silex_user.use_templates' => false,
+    'silex_user.use_translations' => true
 ]);
