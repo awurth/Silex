@@ -1,0 +1,10 @@
+{% extends 'layout.twig' %}
+
+{% block title %}{{ parent() }} - Registration confirmed{% endblock %}
+
+{% block body %}
+
+<p>Your account has been created successfully.</p>
+<a href="{{ path('silex_user.login') }}">Log in</a>
+
+{% endblock %}
