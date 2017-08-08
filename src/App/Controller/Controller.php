@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use AWurth\SilexUser\Entity\UserInterface;
 use Doctrine\ORM\EntityManager;
 use Silex\Application;
 use Symfony\Component\Form\FormFactory;
@@ -9,6 +10,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Twig_Environment;
 
@@ -130,10 +132,11 @@ class Controller
     /**
      * Get current authenticated user
      *
-     * @return mixed
+     * @return UserInterface|null
      */
     public function getUser()
     {
+        /** @var TokenInterface $token */
         $token = $this->application['security.token_storage']->getToken();
 
         return null !== $token ? $token->getUser() : null;
