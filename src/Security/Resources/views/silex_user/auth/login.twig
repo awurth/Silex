@@ -4,16 +4,20 @@
 
 {% block body %}
 
-<form action="{{ path('login_check') }}" method="POST">
+<form action="{{ path('login_check') }}" method="post">
     {{ error }}
     <div>
         <label for="username">{{ 'silex_user.form.username'|trans }}</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}">
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required>
     </div>
     <div>
         <label for="password">{{ 'silex_user.form.password'|trans }}</label>
-        <input type="password" id="password" name="_password" value="">
+        <input type="password" id="password" name="_password" required>
     </div>
+
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+    {% endif %}
 
     <input type="submit">
 </form>

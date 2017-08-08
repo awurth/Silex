@@ -1,7 +1,6 @@
 <?php
 
 use AWurth\SilexUser\Provider\SilexUserServiceProvider;
-use AWurth\SilexUser\Provider\UserProvider;
 use Symfony\Component\Yaml\Yaml;
 use Security\Entity\User;
 
@@ -20,6 +19,7 @@ use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
+// use Silex\Provider\RememberMeServiceProvider;
 
 const ROOT_DIR = __DIR__ . '/../';
 
@@ -69,6 +69,13 @@ $app->register(new DoctrineOrmManagerRegistryProvider());
 
 $app->register(new HttpFragmentServiceProvider());
 
+$app->register(new SilexUserServiceProvider(), [
+    'silex_user.user_class' => User::class,
+    'silex_user.firewall_name' => 'secured',
+    'silex_user.use_templates' => false,
+    'silex_user.use_translations' => true
+]);
+
 $app->register(new SecurityServiceProvider(), [
     'security.role_hierarchy' => [
         'ROLE_ADMIN' => [
@@ -81,19 +88,20 @@ $app->register(new SecurityServiceProvider(), [
             'pattern' => '^/',
             'form' => [
                 'login_path' => '/login',
-                'check_path' => '/login_check'
+                'check_path' => '/login_check',
+                'with_csrf' => true
             ],
             'logout' => [
                 'logout_path' => '/logout',
                 'invalidate_session' => true
             ],
             'anonymous' => true,
-            'users' => function () use ($app) {
-                return new UserProvider($app);
-            }
+            'users' => $app['silex_user.user_provider.username_email']
         ]
     ]
 ]);
+
+// $app->register(new RememberMeServiceProvider());
 
 $app->register(new TwigServiceProvider(), [
     'twig.path' => [
@@ -109,10 +117,4 @@ $app->register(new TwigServiceProvider(), [
 
 $app->register(new AssetServiceProvider(), [
     'assets.version' => 'v1'
-]);
-
-$app->register(new SilexUserServiceProvider(), [
-    'silex_user.user_class' => User::class,
-    'silex_user.use_templates' => false,
-    'silex_user.use_translations' => true
 ]);

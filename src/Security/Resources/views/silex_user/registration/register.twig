@@ -7,8 +7,8 @@
 {{ form_start(form) }}
     {{ form_row(form.username) }}
     {{ form_row(form.email) }}
-    {{ form_row(form.password.password) }}
-    {{ form_row(form.password.confirm_password) }}
+    {{ form_row(form.plainPassword.password) }}
+    {{ form_row(form.plainPassword.confirm_password) }}
 
     {{ form_rest(form) }}
     <input type="submit">
