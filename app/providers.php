@@ -19,7 +19,6 @@ use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\AssetServiceProvider;
-// use Silex\Provider\RememberMeServiceProvider;
 
 const ROOT_DIR = __DIR__ . '/../';
 
@@ -100,8 +99,6 @@ $app->register(new SecurityServiceProvider(), [
         ]
     ]
 ]);
-
-// $app->register(new RememberMeServiceProvider());
 
 $app->register(new TwigServiceProvider(), [
     'twig.path' => [
