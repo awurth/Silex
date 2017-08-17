@@ -26,8 +26,15 @@ $ npm install -g gulp-cli
 ``` bash
 $ gulp
 ```
+You may have to edit the files in `src/App/Resources/assets/` while running gulp for the first time to generate the static `css` and `js` files
 
-### 3. Create database and tables
+### 3. Setup permissions
+You will have to give write permissions to the `var/cache/` and `var/logs` folders
+``` bash
+$ chmod 777 var/cache var/logs
+```
+
+### 4. Create database and tables
 ``` bash
 $ php console doctrine:database:create
 $ php console doctrine:schema:update --force
