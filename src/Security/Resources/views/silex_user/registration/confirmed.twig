@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<p>{{ 'silex_user.registration.confirmed.message'|trans }}</p>
+<p>{{ 'silex_user.registration.confirmed.message'|trans({'%username%': user.username}) }}</p>
 <a href="{{ path('silex_user.login') }}">{{ 'silex_user.global.login'|trans }}</a>
 
 {% endblock %}
