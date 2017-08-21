@@ -5,20 +5,21 @@ namespace App\Controller;
 use AWurth\SilexUser\Entity\UserInterface;
 use Doctrine\ORM\EntityManager;
 use Silex\Application;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Twig_Environment;
 
 /**
- * @property Session session
+ * @property EventDispatcher    dispatcher
  * @property RecursiveValidator validator
- * @property Twig_Environment twig
- * @property UrlGenerator url_generator
+ * @property Session            session
+ * @property Twig_Environment   twig
+ * @property UrlGenerator       url_generator
  */
 class Controller
 {
@@ -27,13 +28,18 @@ class Controller
      */
     protected $application;
 
+    /**
+     * Constructor.
+     *
+     * @param Application $app
+     */
     public function __construct(Application $app)
     {
         $this->application = $app;
     }
 
     /**
-     * Get Doctrine Entity Manager
+     * Gets Doctrine Entity Manager.
      *
      * @return EntityManager
      */
@@ -43,7 +49,7 @@ class Controller
     }
 
     /**
-     * Get Form Factory
+     * Gets the Form Factory.
      *
      * @return FormFactory
      */
@@ -53,11 +59,41 @@ class Controller
     }
 
     /**
-     * Redirect the user to another route
+     * Gets the router.
      *
-     * @param string $route The route to redirect to
-     * @param array $parameters An array of parameters
-     * @param int $status The status code (302 by default)
+     * @return UrlGenerator
+     */
+    public function getRouter()
+    {
+        return $this->application['url_generator'];
+    }
+
+    /**
+     * Gets the session.
+     *
+     * @return Session
+     */
+    public function getSession()
+    {
+        return $this->application['session'];
+    }
+
+    /**
+     * Gets the Twig service.
+     *
+     * @return Twig_Environment
+     */
+    public function getTwig()
+    {
+        return $this->application['twig'];
+    }
+
+    /**
+     * Redirects the user to another route.
+     *
+     * @param string $route
+     * @param array $parameters
+     * @param int $status
      *
      * @return RedirectResponse
      */
@@ -67,7 +103,7 @@ class Controller
     }
 
     /**
-     * Redirect the user to another URL
+     * Redirects the user to another URL.
      *
      * @param string $url The URL to redirect to
      * @param int $status The status code (302 by default)
@@ -80,36 +116,36 @@ class Controller
     }
 
     /**
-     * Generate a path from the given parameters
+     * Generates a path from the given parameters.
      *
-     * @param string $route The name of the route
-     * @param mixed $parameters An array of parameters
+     * @param string $route
+     * @param mixed $parameters
      *
-     * @return string The generated path
+     * @return string
      */
     public function path($route, $parameters = [])
     {
-        return $this->application['url_generator']->generate($route, $parameters, UrlGeneratorInterface::ABSOLUTE_PATH);
+        return $this->getRouter()->generate($route, $parameters, UrlGenerator::ABSOLUTE_PATH);
     }
 
     /**
-     * Generate an absolute URL from the given parameters
+     * Generates an absolute URL from the given parameters.
      *
-     * @param string $route The name of the route
-     * @param mixed $parameters An array of parameters
+     * @param string $route
+     * @param mixed $parameters
      *
-     * @return string The generated URL
+     * @return string
      */
     public function url($route, $parameters = [])
     {
-        return $this->application['url_generator']->generate($route, $parameters, UrlGeneratorInterface::ABSOLUTE_URL);
+        return $this->getRouter()->generate($route, $parameters, UrlGenerator::ABSOLUTE_URL);
     }
 
     /**
-     * Render a template
+     * Renders a twig template.
      *
-     * @param string $name The template name
-     * @param array $context An array of parameters to pass to the template
+     * @param string $name
+     * @param array $context
      *
      * @return string
      */
@@ -119,18 +155,18 @@ class Controller
     }
 
     /**
-     * Add a flash message for type
+     * Adds a flash message.
      *
      * @param string $type
      * @param string $message
      */
     public function flash($type, $message)
     {
-        $this->application['session']->getFlashBag()->add($type, $message);
+        $this->getSession()->getFlashBag()->add($type, $message);
     }
 
     /**
-     * Get current authenticated user
+     * Gets the current authenticated user.
      *
      * @return UserInterface|null
      */
@@ -143,7 +179,7 @@ class Controller
     }
 
     /**
-     * Check if user is granted role $role
+     * Checks if user is granted a role.
      *
      * @param string $role
      *
@@ -157,7 +193,7 @@ class Controller
     /**
      * Get a service from the container
      *
-     * @param string $service The service name
+     * @param string $service
      *
      * @return mixed
      */
@@ -166,6 +202,13 @@ class Controller
         return $this->application[$service];
     }
 
+    /**
+     * Gets a service from the container.
+     *
+     * @param string $property
+     *
+     * @return mixed
+     */
     public function __get($property)
     {
         return $this->application[$property];
