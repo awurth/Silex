@@ -6,6 +6,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application();
 
+$app['environment'] = 'prod';
+
 require __DIR__ . '/../app/providers.php';
 
 require __DIR__ . '/../app/controllers.php';

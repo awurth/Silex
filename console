@@ -7,7 +7,8 @@ use Silex\Application;
 use Saxulum\Console\Provider\ConsoleProvider;
 
 $app = new Application([
-    'debug' => true
+    'debug' => true,
+    'environment' => 'dev'
 ]);
 
 $app->register(new ConsoleProvider());

@@ -10,6 +10,7 @@ Debug::enable();
 $app = new Application();
 
 $app['debug'] = true;
+$app['environment'] = 'dev';
 
 require __DIR__ . '/../../app/providers_dev.php';
 
