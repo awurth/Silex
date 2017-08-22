@@ -1,31 +1,31 @@
 <?php
 
 use AWurth\SilexUser\Provider\SilexUserServiceProvider;
-use Symfony\Component\Yaml\Yaml;
-use Security\Entity\User;
-
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
+use Security\Entity\User;
+use Silex\Provider\AssetServiceProvider;
+use Silex\Provider\CsrfServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\FormServiceProvider;
+use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\LocaleServiceProvider;
 use Silex\Provider\MonologServiceProvider;
+use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
-use Silex\Provider\ValidatorServiceProvider;
-use Silex\Provider\FormServiceProvider;
-use Silex\Provider\CsrfServiceProvider;
-use Silex\Provider\LocaleServiceProvider;
+use Silex\Provider\SwiftmailerServiceProvider;
 use Silex\Provider\TranslationServiceProvider;
-use Silex\Provider\DoctrineServiceProvider;
-use Silex\Provider\HttpFragmentServiceProvider;
-use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\AssetServiceProvider;
+use Silex\Provider\ValidatorServiceProvider;
+use Symfony\Component\Yaml\Yaml;
 
 const ROOT_DIR = __DIR__ . '/../';
 
 $parameters = Yaml::parse(file_get_contents(__DIR__ . '/parameters.yml'))['parameters'];
 
 $app->register(new MonologServiceProvider(), [
-    'monolog.logfile' => ROOT_DIR . 'var/logs/dev.log'
+    'monolog.logfile' => ROOT_DIR . 'var/logs/' . $app['environment'] . '.log'
 ]);
 
 $app->register(new ServiceControllerServiceProvider());
@@ -40,13 +40,22 @@ $app->register(new CsrfServiceProvider());
 
 $app->register(new LocaleServiceProvider());
 
-$app->register(new TranslationServiceProvider());
+$app->register(new TranslationServiceProvider(), [
+    'translator.cache_dir' => ROOT_DIR . 'var/cache/' . $app['environment'] . '/translations'
+]);
 
 $app->register(new DoctrineServiceProvider(), [
-    'db.options' => $parameters
+    'db.options' => [
+        'driver' => $parameters['database_driver'],
+        'host' => $parameters['database_host'],
+        'user' => $parameters['database_user'],
+        'password' => $parameters['database_password'],
+        'dbname' => $parameters['database_name']
+    ]
 ]);
 
 $app->register(new DoctrineOrmServiceProvider(), [
+    'orm.proxies_dir' => ROOT_DIR . 'var/cache/' . $app['environment'] . '/doctrine/orm/proxies',
     'orm.em.options' => [
         'mappings' => [
             [
@@ -68,11 +77,15 @@ $app->register(new DoctrineOrmManagerRegistryProvider());
 
 $app->register(new HttpFragmentServiceProvider());
 
-$app->register(new SilexUserServiceProvider(), [
-    'silex_user.user_class' => User::class,
-    'silex_user.firewall_name' => 'secured',
-    'silex_user.use_templates' => false,
-    'silex_user.use_translations' => true
+$app->register(new SwiftmailerServiceProvider(), [
+    'swiftmailer.options' => [
+        'host' => $parameters['mailer_host'],
+        'port' => $parameters['mailer_port'],
+        'username' => $parameters['mailer_user'],
+        'password' => $parameters['mailer_password'],
+        'encryption' => $parameters['mailer_encryption'],
+        'auth_mode' => $parameters['mailer_auth_mode']
+    ]
 ]);
 
 $app->register(new SecurityServiceProvider(), [
@@ -83,7 +96,7 @@ $app->register(new SecurityServiceProvider(), [
         ]
     ],
     'security.firewalls' => [
-        'secured' => [
+        'main' => [
             'pattern' => '^/',
             'form' => [
                 'login_path' => '/login',
@@ -95,9 +108,15 @@ $app->register(new SecurityServiceProvider(), [
                 'invalidate_session' => true
             ],
             'anonymous' => true,
-            'users' => $app['silex_user.user_provider.username_email']
+            'users' => function ($app) {
+                return $app['silex_user.user_provider.username_email'];
+            }
         ]
     ]
+]);
+
+$app->register(new AssetServiceProvider(), [
+    'assets.version' => 'v1'
 ]);
 
 $app->register(new TwigServiceProvider(), [
@@ -106,12 +125,20 @@ $app->register(new TwigServiceProvider(), [
         ROOT_DIR . 'src/Security/Resources/views'
     ],
     'twig.options' => [
-        'cache' => ROOT_DIR . 'var/cache/twig',
+        'cache' => ROOT_DIR . 'var/cache/' . $app['environment'] . '/twig',
         'debug' => true,
         'auto_reload' => true
     ]
 ]);
 
-$app->register(new AssetServiceProvider(), [
-    'assets.version' => 'v1'
+// https://github.com/awurth/silex-user
+$app->register(new SilexUserServiceProvider(), [
+    'silex_user.options' => [
+        'user_class' => User::class,
+        'firewall_name' => 'main',
+        'use_templates' => false,
+        'use_authentication_listener' => false,
+        'registration.confirmation.enabled' => false,
+        'registration.confirmation.from_email' => $parameters['mailer_user']
+    ]
 ]);
