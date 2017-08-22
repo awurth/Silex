@@ -10,5 +10,5 @@ $app['assets.base_path'] = '..';
 $app->register(new VarDumperServiceProvider());
 
 $app->register(new WebProfilerServiceProvider(), [
-    'profiler.cache_dir' => ROOT_DIR . 'var/cache/profiler'
+    'profiler.cache_dir' => ROOT_DIR . 'var/cache/' . $app['environment'] . '/profiler'
 ]);
