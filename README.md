@@ -15,7 +15,7 @@ $ composer create-project awurth/slim [app-name]
 $ bower install
 $ npm install
 ```
-This will create a `lib/` folder in `web/` for jQuery and Semantic UI
+This will create a `lib/` folder in `web/assets/` for jQuery and Semantic UI
 
 ##### Install Gulp globally
 ``` bash

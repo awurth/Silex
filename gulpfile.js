@@ -11,7 +11,7 @@ gulp.task('sass', function () {
         .pipe(autoprefixer())
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('web/css/'));
+        .pipe(gulp.dest('web/assets/css/'));
 });
 
 gulp.task('javascript', function () {
@@ -22,7 +22,7 @@ gulp.task('javascript', function () {
         }))
         .pipe(concat('app.js'))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('web/js/'));
+        .pipe(gulp.dest('web/assets/js/'));
 });
 
 gulp.task('default', function () {

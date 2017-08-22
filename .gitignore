@@ -8,8 +8,8 @@ var/cache/*
 var/logs/*
 !var/logs/.gitkeep
 app/config/parameters.yml
-web/lib/
-web/css/*
-web/js/*
-!web/css/.gitkeep
-!web/js/.gitkeep
+web/assets/lib/
+web/assets/css/*
+web/assets/js/*
+!web/assets/css/.gitkeep
+!web/assets/js/.gitkeep
