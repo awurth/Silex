@@ -1,10 +1,15 @@
 {% extends 'layout.twig' %}
 
-{% block title %}{{ parent() }} - {{ 'silex_user.registration.confirmed.title'|trans }}{% endblock %}
+{% trans_default_domain 'silex_user' %}
+
+{% block title %}{{ parent() }} - {{ 'registration.confirmed.title'|trans }}{% endblock %}
 
 {% block body %}
 
-<p>{{ 'silex_user.registration.confirmed.message'|trans({'%username%': user.username}) }}</p>
-<a href="{{ path('silex_user.login') }}">{{ 'silex_user.global.login'|trans }}</a>
+<p>{{ 'registration.confirmed.message'|trans({'%username%': user.username}) }}</p>
+
+{% if not app.user %}
+    <a href="{{ path('silex_user.login') }}">{{ 'global.login'|trans }}</a>
+{% endif %}
 
 {% endblock %}

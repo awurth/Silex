@@ -1,12 +1,14 @@
+{% trans_default_domain 'silex_user' %}
+
 {% block subject %}
     {%- autoescape false -%}
-        {{ 'silex_user.registration.email.subject'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+        {{ 'registration.email.subject'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
     {%- endautoescape -%}
 {% endblock %}
 
 {% block body_text %}
     {% autoescape false %}
-        {{ 'silex_user.registration.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+        {{ 'registration.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
     {% endautoescape %}
 {% endblock %}
 {% block body_html %}{% endblock %}

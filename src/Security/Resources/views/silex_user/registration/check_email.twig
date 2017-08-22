@@ -1,9 +1,11 @@
 {% extends 'layout.twig' %}
 
-{% block title %}{{ parent() }} - {{ 'silex_user.registration.title'|trans }}{% endblock %}
+{% trans_default_domain 'silex_user' %}
+
+{% block title %}{{ parent() }} - {{ 'registration.title'|trans }}{% endblock %}
 
 {% block body %}
 
-<p>{{ 'silex_user.registration.check_email'|trans({'%email%': user.email}) }}</p>
+<p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
 
 {% endblock %}
