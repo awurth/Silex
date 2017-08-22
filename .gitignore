@@ -7,7 +7,7 @@ var/cache/*
 !var/logs
 var/logs/*
 !var/logs/.gitkeep
-app/parameters.yml
+app/config/parameters.yml
 web/lib/
 web/css/*
 web/js/*

@@ -56,7 +56,7 @@
     },
     "extra": {
         "incenteev-parameters": {
-            "file": "app/parameters.yml"
+            "file": "app/config/parameters.yml"
         }
     }
 }

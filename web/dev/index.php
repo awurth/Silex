@@ -14,6 +14,8 @@ $app['environment'] = 'dev';
 
 require __DIR__ . '/../../app/providers_dev.php';
 
+require __DIR__ . '/../../app/config/config_dev.php';
+
 require __DIR__ . '/../../app/controllers.php';
 
 require __DIR__ . '/../../app/routing.php';
