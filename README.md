@@ -1,6 +1,6 @@
 # Silex skeleton
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ace47319-1c62-4a1b-a0d4-1274e6a6d887/mini.png)](https://insight.sensiolabs.com/projects/ace47319-1c62-4a1b-a0d4-1274e6a6d887)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/ace47319-1c62-4a1b-a0d4-1274e6a6d887/mini.png)](https://insight.sensiolabs.com/projects/ace47319-1c62-4a1b-a0d4-1274e6a6d887) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/awurth/silex/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/awurth/silex/?branch=master)
 
 > This is a skeleton for the Silex PHP Micro-Framework to get started quickly
 
