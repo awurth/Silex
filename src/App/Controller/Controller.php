@@ -10,7 +10,6 @@ use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Twig_Environment;
 
@@ -100,6 +99,21 @@ class Controller
     }
 
     /**
+     * Gets the current authenticated user or null if not logged in.
+     *
+     * @return UserInterface|null
+     */
+    public function getUser()
+    {
+        $user = $this->application['security.token_storage']->getToken()->getUser();
+        if ($user instanceof UserInterface) {
+            return $user;
+        }
+
+        return null;
+    }
+
+    /**
      * Redirects the user to another route.
      *
      * @param string $route
@@ -174,19 +188,6 @@ class Controller
     public function flash($type, $message)
     {
         $this->getSession()->getFlashBag()->add($type, $message);
-    }
-
-    /**
-     * Gets the current authenticated user.
-     *
-     * @return UserInterface|null
-     */
-    public function getUser()
-    {
-        /** @var TokenInterface $token */
-        $token = $this->application['security.token_storage']->getToken();
-
-        return null !== $token ? $token->getUser() : null;
     }
 
     /**
