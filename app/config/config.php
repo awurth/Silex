@@ -29,9 +29,7 @@ $app['twig.path'] = [
 ];
 
 $app['twig.options'] = [
-    'cache' => ROOT_DIR . 'var/cache/' . $app['environment'] . '/twig',
-    'debug' => true,
-    'auto_reload' => true
+    'cache' => ROOT_DIR . 'var/cache/' . $app['environment'] . '/twig'
 ];
 
 $app['orm.proxies_dir'] = ROOT_DIR . 'var/cache/' . $app['environment'] . '/doctrine/orm/proxies';
