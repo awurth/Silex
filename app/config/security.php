@@ -20,8 +20,6 @@ $app['security.firewalls'] = [
             'invalidate_session' => true
         ],
         'anonymous' => true,
-        'users' => function ($app) {
-            return $app['silex_user.user_provider.username_email'];
-        }
+        'users' => $app['silex_user.user_provider.username_email']
     ]
 ];
