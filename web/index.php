@@ -17,4 +17,6 @@ require __DIR__ . '/../app/controllers.php';
 
 require __DIR__ . '/../app/routing.php';
 
+require __DIR__ . '/../app/handlers.php';
+
 $app->run();
