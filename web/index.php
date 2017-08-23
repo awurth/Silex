@@ -6,6 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application();
 
+$app['root_dir'] = dirname(__DIR__);
 $app['environment'] = 'prod';
 
 require __DIR__ . '/../app/providers.php';

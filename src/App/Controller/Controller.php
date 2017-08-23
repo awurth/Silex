@@ -20,6 +20,7 @@ use Twig_Environment;
  * @property Session            session
  * @property Twig_Environment   twig
  * @property UrlGenerator       url_generator
+ * @property string             root_dir
  */
 class Controller
 {
@@ -56,6 +57,16 @@ class Controller
     public function getFormFactory()
     {
         return $this->application['form.factory'];
+    }
+
+    /**
+     * Gets the project root directory.
+     *
+     * @return string
+     */
+    public function getRootDir()
+    {
+        return $this->application['root_dir'];
     }
 
     /**
@@ -151,7 +162,7 @@ class Controller
      */
     public function render($name, array $context = [])
     {
-        return $this->application['twig']->render($name, $context);
+        return $this->getTwig()->render($name, $context);
     }
 
     /**

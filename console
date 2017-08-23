@@ -8,7 +8,8 @@ use Saxulum\Console\Provider\ConsoleProvider;
 
 $app = new Application([
     'debug' => true,
-    'environment' => 'dev'
+    'environment' => 'dev',
+    'root_dir' => __DIR__
 ]);
 
 $app->register(new ConsoleProvider());
