@@ -1,9 +1,8 @@
 <?php
 
-use Silex\Provider\WebProfilerServiceProvider;
-use Silex\Provider\VarDumperServiceProvider;
+use Silex\Provider as SP;
 
 require __DIR__ . '/providers.php';
 
-$app->register(new VarDumperServiceProvider());
-$app->register(new WebProfilerServiceProvider());
+$app->register(new SP\VarDumperServiceProvider());
+$app->register(new SP\WebProfilerServiceProvider());
