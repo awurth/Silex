@@ -56,6 +56,7 @@ $app['swiftmailer.options'] = [
     'auth_mode'  => $parameters['mailer_auth_mode']
 ];
 
+// https://github.com/awurth/silex-user
 $app['silex_user.options'] = [
     'user_class' => User::class,
     'firewall_name' => 'main',

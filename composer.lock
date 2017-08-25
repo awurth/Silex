@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "awurth/silex-user",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awurth/silex-user.git",
-                "reference": "42fcec00ec37711aded376fc8c2aa259ddef871e"
+                "reference": "1ab73db3e1d24ba52dc24f01231c484817fb025d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awurth/silex-user/zipball/42fcec00ec37711aded376fc8c2aa259ddef871e",
-                "reference": "42fcec00ec37711aded376fc8c2aa259ddef871e",
+                "url": "https://api.github.com/repos/awurth/silex-user/zipball/1ab73db3e1d24ba52dc24f01231c484817fb025d",
+                "reference": "1ab73db3e1d24ba52dc24f01231c484817fb025d",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +52,7 @@
                 }
             ],
             "description": "A user provider for Silex",
-            "time": "2017-08-22T13:39:10+00:00"
+            "time": "2017-08-23T20:00:40+00:00"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",
@@ -181,16 +181,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.7.0",
+            "version": "v1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "53d9518ffeb019c51d542ff60cb578f076d3ff16"
+                "reference": "b3217d58609e9c8e661cd41357a54d926c4a2a1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/53d9518ffeb019c51d542ff60cb578f076d3ff16",
-                "reference": "53d9518ffeb019c51d542ff60cb578f076d3ff16",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/b3217d58609e9c8e661cd41357a54d926c4a2a1a",
+                "reference": "b3217d58609e9c8e661cd41357a54d926c4a2a1a",
                 "shasum": ""
             },
             "require": {
@@ -251,7 +251,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2017-07-22T13:00:15+00:00"
+            "time": "2017-08-25T07:02:50+00:00"
         },
         {
             "name": "doctrine/collections",
