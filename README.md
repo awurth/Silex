@@ -26,7 +26,8 @@ $ npm install -g gulp-cli
 ``` bash
 $ gulp
 ```
-You may have to edit the files in `src/App/Resources/assets/` while running gulp for the first time to generate the static `css` and `js` files
+
+This will compile and watch all SASS and JS files and put the result in the `web/assets/` folder
 
 ### 3. Setup permissions
 You will have to give write permissions to the `var/cache/` and `var/logs` folders
