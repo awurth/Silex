@@ -6,10 +6,12 @@
 
 {% block body %}
 
-<p>{{ 'registration.confirmed.message'|trans({'%username%': user.username}) }}</p>
+<div class="ui container">
+    <p>{{ 'registration.confirmed.message'|trans({'%username%': user.username}) }}</p>
 
-{% if not app.user %}
-    <a href="{{ path('silex_user.login') }}">{{ 'global.login'|trans }}</a>
-{% endif %}
+    {% if not app.user %}
+        <a href="{{ path('silex_user.login') }}" class="ui circular button">{{ 'global.login'|trans }}</a>
+    {% endif %}
+</div>
 
 {% endblock %}

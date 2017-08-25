@@ -5,23 +5,25 @@
 {% block title %}{{ parent() }} - {{ 'login.title'|trans }}{% endblock %}
 
 {% block body %}
+<div class="ui container">
+    <h1 class="ui header">{{ 'login.title'|trans }}</h1>
+    <form action="{{ path('silex_user.login_check') }}" method="post" class="ui error form">
+        {{ error }}
+        <div class="field">
+            <label for="username">{{ 'form.username'|trans }}</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required>
+        </div>
+        <div class="field">
+            <label for="password">{{ 'form.password'|trans }}</label>
+            <input type="password" id="password" name="_password" required>
+        </div>
 
-<form action="{{ path('silex_user.login_check') }}" method="post">
-    {{ error }}
-    <div>
-        <label for="username">{{ 'form.username'|trans }}</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required>
-    </div>
-    <div>
-        <label for="password">{{ 'form.password'|trans }}</label>
-        <input type="password" id="password" name="_password" required>
-    </div>
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+        {% endif %}
 
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
-    {% endif %}
-
-    <input type="submit">
-</form>
+        <input type="submit" class="ui teal circular button">
+    </form>
+</div>
 
 {% endblock %}

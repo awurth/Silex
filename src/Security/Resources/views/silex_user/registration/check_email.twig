@@ -6,6 +6,8 @@
 
 {% block body %}
 
-<p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+<div class="ui container">
+    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+</div>
 
 {% endblock %}

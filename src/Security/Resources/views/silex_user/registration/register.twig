@@ -5,15 +5,33 @@
 {% block title %}{{ parent() }} - {{ 'registration.title'|trans }}{% endblock %}
 
 {% block body %}
+<div class="ui container">
+    <h1 class="ui header">{{ 'registration.title'|trans }}</h1>
+    {{ form_start(form, { 'attr': { 'class': 'ui error form' } }) }}
+        <div class="field">
+            {{ form_label(form.username) }}
+            {{ form_widget(form.username) }}
+            {{ form_errors(form.username) }}
+        </div>
+        <div class="field">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+            {{ form_errors(form.email) }}
+        </div>
+        <div class="field">
+            {{ form_label(form.plainPassword.password) }}
+            {{ form_widget(form.plainPassword.password) }}
+            {{ form_errors(form.plainPassword.password) }}
+        </div>
+        <div class="field">
+            {{ form_label(form.plainPassword.confirm_password) }}
+            {{ form_widget(form.plainPassword.confirm_password) }}
+            {{ form_errors(form.plainPassword.confirm_password) }}
+        </div>
 
-{{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword.password) }}
-    {{ form_row(form.plainPassword.confirm_password) }}
-
-    {{ form_rest(form) }}
-    <input type="submit">
-{{ form_end(form) }}
+        {{ form_rest(form) }}
+        <input type="submit" class="ui teal circular button">
+    {{ form_end(form) }}
+</div>
 
 {% endblock %}
