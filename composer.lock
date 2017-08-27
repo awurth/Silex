@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "awurth/silex-user",
-            "version": "0.4.1",
+            "version": "0.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awurth/silex-user.git",
-                "reference": "1ab73db3e1d24ba52dc24f01231c484817fb025d"
+                "reference": "2dc9c3533c1e6f367a3d9e389fa5430deeeed68a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awurth/silex-user/zipball/1ab73db3e1d24ba52dc24f01231c484817fb025d",
-                "reference": "1ab73db3e1d24ba52dc24f01231c484817fb025d",
+                "url": "https://api.github.com/repos/awurth/silex-user/zipball/2dc9c3533c1e6f367a3d9e389fa5430deeeed68a",
+                "reference": "2dc9c3533c1e6f367a3d9e389fa5430deeeed68a",
                 "shasum": ""
             },
             "require": {
@@ -30,6 +30,8 @@
                 "symfony/validator": "^3.3"
             },
             "require-dev": {
+                "dflydev/doctrine-orm-service-provider": "^2.0",
+                "phpunit/phpunit": "^6.3",
                 "swiftmailer/swiftmailer": "^6.0"
             },
             "suggest": {
@@ -52,7 +54,7 @@
                 }
             ],
             "description": "A user provider for Silex",
-            "time": "2017-08-23T20:00:40+00:00"
+            "time": "2017-08-27T17:41:35+00:00"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",

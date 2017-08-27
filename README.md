@@ -30,7 +30,7 @@ $ gulp
 This will compile and watch all SASS and JS files and put the result in the `web/assets/` folder
 
 ### 3. Setup permissions
-You will have to give write permissions to the `var/cache/` and `var/logs` folders
+You will have to give write permissions to the `var/cache/` and `var/logs/` folders
 ``` bash
 $ chmod 777 var/cache var/logs
 ```
