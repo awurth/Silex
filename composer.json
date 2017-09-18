@@ -18,7 +18,7 @@
         }
     },
     "require": {
-        "awurth/silex-user": "^0.4.0",
+        "awurth/silex-user": "^0.4.4",
         "dflydev/doctrine-orm-service-provider": "^2.0",
         "doctrine/dbal": "^2.5",
         "incenteev/composer-parameter-handler": "^2.1",
@@ -28,6 +28,7 @@
         "saxulum/saxulum-doctrine-orm-manager-registry-provider": "^3.1",
         "silex/silex": "^2.2",
         "silex/web-profiler": "^2.0",
+        "swiftmailer/swiftmailer": "^6.0",
         "symfony/asset": "^3.3",
         "symfony/config": "^3.3",
         "symfony/debug-bundle": "^3.3",
@@ -35,16 +36,19 @@
         "symfony/form": "^3.3",
         "symfony/monolog-bridge": "^3.3",
         "symfony/security": "^3.3",
+        "symfony/security-bundle": "^3.3",
         "symfony/security-csrf": "^3.3",
         "symfony/translation": "^3.3",
         "symfony/twig-bridge": "^3.3",
         "symfony/validator": "^3.3",
         "symfony/var-dumper": "^3.3",
-        "swiftmailer/swiftmailer": "^6.0",
         "twig/twig": "^2.4"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.1"
+        "phpunit/phpunit": "^4.8|^5.0|^6.0"
+    },
+    "config": {
+        "sort-packages": true
     },
     "scripts": {
         "post-install-cmd": [
