@@ -34,14 +34,14 @@ $app['orm.proxies_dir'] = $app['root_dir'] . '/var/cache/' . $app['environment']
 $app['orm.em.options'] = [
     'mappings' => [
         [
-            'type' => 'annotation',
+            'type'      => 'annotation',
             'namespace' => 'App\Entity',
-            'path' => $app['root_dir'] . '/src/App/Entity',
+            'path'      => $app['root_dir'] . '/src/App/Entity',
             'use_simple_annotation_reader' => false
         ], [
-            'type' => 'annotation',
+            'type'      => 'annotation',
             'namespace' => 'Security\Entity',
-            'path' => $app['root_dir'] . '/src/Security/Entity',
+            'path'      => $app['root_dir'] . '/src/Security/Entity',
             'use_simple_annotation_reader' => false
         ]
     ]
@@ -59,10 +59,10 @@ $app['swiftmailer.options'] = [
 // https://github.com/awurth/silex-user
 $app['silex_user.options'] = [
     'object_manager' => 'orm.em',
-    'user_class' => User::class,
-    'firewall_name' => 'main',
-    'use_templates' => false,
-    'use_authentication_listener' => false,
-    'registration.confirmation.enabled' => false,
+    'user_class'     => User::class,
+    'firewall_name'  => 'main',
+    'use_templates'  => false,
+    'use_authentication_listener'          => false,
+    'registration.confirmation.enabled'    => false,
     'registration.confirmation.from_email' => $parameters['mailer_user']
 ];

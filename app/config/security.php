@@ -13,10 +13,10 @@ $app['security.firewalls'] = [
         'form' => [
             'login_path' => '/login',
             'check_path' => '/login_check',
-            'with_csrf' => true
+            'with_csrf'  => true
         ],
         'logout' => [
-            'logout_path' => '/logout',
+            'logout_path'        => '/logout',
             'invalidate_session' => true
         ],
         'anonymous' => true,

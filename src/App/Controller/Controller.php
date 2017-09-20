@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use AWurth\SilexUser\Entity\UserInterface;
+use AWurth\SilexUser\Model\UserInterface;
 use Doctrine\ORM\EntityManager;
 use Silex\Application;
 use Symfony\Component\EventDispatcher\EventDispatcher;
