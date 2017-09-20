@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a33f6a6ed0e415c0c774eff09be84a4e",
+    "content-hash": "843809e42e208ee66cc0289b6bc4e5f3",
     "packages": [
         {
             "name": "awurth/silex-user",
-            "version": "0.4.4",
+            "version": "0.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awurth/silex-user.git",
-                "reference": "3fd9b3b70d1bba13fa209d32ffd8a3d3b36f717d"
+                "reference": "82bcf8a909f4910458aed98de3aaf3ae54afb403"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awurth/silex-user/zipball/3fd9b3b70d1bba13fa209d32ffd8a3d3b36f717d",
-                "reference": "3fd9b3b70d1bba13fa209d32ffd8a3d3b36f717d",
+                "url": "https://api.github.com/repos/awurth/silex-user/zipball/82bcf8a909f4910458aed98de3aaf3ae54afb403",
+                "reference": "82bcf8a909f4910458aed98de3aaf3ae54afb403",
                 "shasum": ""
             },
             "require": {
-                "doctrine/orm": "^2.3",
+                "php": "^5.5.9|>=7.0.8",
                 "silex/silex": "^2.2",
                 "symfony/doctrine-bridge": "^3.3",
                 "symfony/form": "^3.3",
@@ -30,11 +30,18 @@
                 "symfony/validator": "^3.3"
             },
             "require-dev": {
+                "alcaeus/mongo-php-adapter": "^1.1",
                 "dflydev/doctrine-orm-service-provider": "^2.0",
+                "doctrine/orm": "^2.3",
                 "phpunit/phpunit": "^6.3",
+                "saxulum/saxulum-doctrine-mongodb-odm-provider": "^2.3",
                 "swiftmailer/swiftmailer": "^6.0"
             },
             "suggest": {
+                "dflydev/doctrine-orm-service-provider": "An implementation of the Doctrine ORM for Silex",
+                "saxulum/saxulum-doctrine-mongodb-odm-manager-registry-provider": "Adds support for the Unique validator for MongoDB documents",
+                "saxulum/saxulum-doctrine-mongodb-odm-provider": "An implementation of the Doctrine MongoDB ODM for Silex",
+                "saxulum/saxulum-doctrine-orm-manager-registry-provider": "Adds support for the UniqueEntity validator and more",
                 "swiftmailer/swiftmailer": "Use SwiftMailer for sending emails"
             },
             "type": "library",
@@ -54,7 +61,7 @@
                 }
             ],
             "description": "A user provider for Silex",
-            "time": "2017-08-31T17:12:06+00:00"
+            "time": "2017-09-19T14:19:40+00:00"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",

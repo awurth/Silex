@@ -18,7 +18,7 @@
         }
     },
     "require": {
-        "awurth/silex-user": "^0.4.4",
+        "awurth/silex-user": "^0.5.0",
         "dflydev/doctrine-orm-service-provider": "^2.0",
         "doctrine/dbal": "^2.5",
         "incenteev/composer-parameter-handler": "^2.1",
