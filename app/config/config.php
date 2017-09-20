@@ -7,6 +7,8 @@ $parameters = Yaml::parse(file_get_contents(__DIR__ . '/parameters.yml'))['param
 
 require __DIR__ . '/security.php';
 
+$app['cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['environment'];
+
 $app['monolog.logfile'] = $app['root_dir'] . '/var/logs/' . $app['environment'] . '.log';
 
 $app['db.options'] = [
@@ -17,7 +19,7 @@ $app['db.options'] = [
     'dbname'   => $parameters['database_name']
 ];
 
-$app['translator.cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['environment'] . '/translations';
+$app['translator.cache_dir'] = $app['cache_dir'] . '/translations';
 
 $app['assets.version'] = 'v1';
 
@@ -27,10 +29,10 @@ $app['twig.path'] = [
 ];
 
 $app['twig.options'] = [
-    'cache' => $app['root_dir'] . '/var/cache/' . $app['environment'] . '/twig'
+    'cache' => $app['cache_dir'] . '/twig'
 ];
 
-$app['orm.proxies_dir'] = $app['root_dir'] . '/var/cache/' . $app['environment'] . '/doctrine/orm/proxies';
+$app['orm.proxies_dir'] = $app['cache_dir'] . '/doctrine/orm/proxies';
 $app['orm.em.options'] = [
     'mappings' => [
         [
