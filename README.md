@@ -7,7 +7,7 @@
 ## Installation
 ### 1. Create project using Composer
 ``` bash
-$ composer create-project awurth/slim [app-name]
+$ composer create-project awurth/silex [app-name]
 ```
 
 ### 2. Download bower and npm dependencies
@@ -37,12 +37,12 @@ $ chmod 777 var/cache var/logs
 
 ### 4. Create database and tables
 ``` bash
-$ php console doctrine:database:create
-$ php console doctrine:schema:update --force
+$ php bin/console doctrine:database:create
+$ php bin/console doctrine:schema:update --force
 ```
 
 You can set the `console` file executable to call it directly
 ``` bash
-$ chmod a+x console
-$ ./console [command]
+$ chmod a+x bin/console
+$ bin/console [command]
 ```
