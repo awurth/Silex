@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use Silex\Application;
 use Saxulum\Console\Provider\ConsoleProvider;
@@ -9,17 +9,17 @@ use Saxulum\Console\Provider\ConsoleProvider;
 $app = new Application([
     'debug' => true,
     'environment' => 'dev',
-    'root_dir' => __DIR__
+    'root_dir' => dirname(__DIR__)
 ]);
 
 $app->register(new ConsoleProvider());
 
-require __DIR__ . '/app/providers.php';
+require __DIR__ . '/../app/providers.php';
 
-require __DIR__ . '/app/config/config.php';
+require __DIR__ . '/../app/config/config.php';
 
-require __DIR__ . '/app/controllers.php';
+require __DIR__ . '/../app/controllers.php';
 
-require __DIR__ . '/app/routing.php';
+require __DIR__ . '/../app/routing.php';
 
 $app['console']->run();
