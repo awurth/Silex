@@ -14,13 +14,14 @@ $app->register(new SP\CsrfServiceProvider());
 $app->register(new SP\LocaleServiceProvider());
 $app->register(new SP\TranslationServiceProvider());
 $app->register(new SP\DoctrineServiceProvider());
-$app->register(new DoctrineOrmServiceProvider());
-$app->register(new DoctrineOrmManagerRegistryProvider());
 $app->register(new SP\HttpFragmentServiceProvider());
 $app->register(new SP\SwiftmailerServiceProvider());
 $app->register(new SP\SecurityServiceProvider());
 $app->register(new SP\AssetServiceProvider());
 $app->register(new SP\TwigServiceProvider());
+
+$app->register(new DoctrineOrmServiceProvider());
+$app->register(new DoctrineOrmManagerRegistryProvider());
 
 // https://github.com/awurth/silex-user
 $app->register(new SilexUserServiceProvider());

@@ -1,7 +1,11 @@
 <?php
 
-use App\Controller\AppController;
+$controllers = [
+    'app.controller' => 'App\Controller\AppController'
+];
 
-$app['app.controller'] = function () use ($app) {
-    return new AppController($app);
-};
+foreach ($controllers as $key => $class) {
+    $app[$key] = function () use ($app, $class) {
+        return new $class($app);
+    };
+}
