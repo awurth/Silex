@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
-use AWurth\SilexUser\Model\UserInterface;
 use Doctrine\ORM\EntityManager;
+use Security\Entity\User;
 use Silex\Application;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Form\FormFactory;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
 use Twig_Environment;
 
@@ -36,6 +38,48 @@ class Controller
     public function __construct(Application $app)
     {
         $this->application = $app;
+    }
+
+    /**
+     * Returns a new AccessDeniedException.
+     *
+     * @param string $message
+     *
+     * @return AccessDeniedException
+     */
+    protected function createAccessDeniedException($message = 'Access Denied.')
+    {
+        return new AccessDeniedException($message);
+    }
+
+    /**
+     * Returns a new NotFoundHttpException.
+     *
+     * @param string $message
+     *
+     * @return NotFoundHttpException
+     */
+    protected function createNotFoundHttpException($message = 'Not Found')
+    {
+        return new NotFoundHttpException($message);
+    }
+
+    /**
+     * Throws an exception unless the attributes are granted against the current authentication token.
+     *
+     * @param mixed  $roles
+     * @param string $message
+     *
+     * @throws AccessDeniedException
+     */
+    protected function denyAccessUnlessGranted($roles, $message = 'Access Denied.')
+    {
+        if (!$this->isGranted($roles)) {
+            $exception = $this->createAccessDeniedException($message);
+            $exception->setAttributes($roles);
+
+            throw $exception;
+        }
     }
 
     /**
@@ -101,12 +145,12 @@ class Controller
     /**
      * Gets the current authenticated user or null if not logged in.
      *
-     * @return UserInterface|null
+     * @return User|null
      */
     public function getUser()
     {
         $user = $this->application['security.token_storage']->getToken()->getUser();
-        if ($user instanceof UserInterface) {
+        if ($user instanceof User) {
             return $user;
         }
 
