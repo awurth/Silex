@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Controller;
+namespace Tests\App\Controller;
 
-use Silex\Application;
 use Silex\WebTestCase;
 
 class AppControllerTest extends WebTestCase
