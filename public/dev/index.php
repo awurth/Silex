@@ -13,9 +13,9 @@ $app['debug'] = true;
 $app['root_dir'] = dirname(__DIR__, 2);
 $app['environment'] = 'dev';
 
-require __DIR__ . '/../../app/providers_dev.php';
+require __DIR__ . '/../../app/providers.dev.php';
 
-require __DIR__ . '/../../app/config/config_dev.php';
+require __DIR__ . '/../../app/config/config.dev.php';
 
 require __DIR__ . '/../../app/controllers.php';
 

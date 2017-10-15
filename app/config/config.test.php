@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/config_dev.php';
+require __DIR__ . '/config.dev.php';
 
 $app['db.options'] = [
     'driver' => 'pdo_sqlite',
