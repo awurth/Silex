@@ -9,8 +9,8 @@ use AWurth\SilexUser\Command\CreateUserCommand;
 use AWurth\SilexUser\Command\DeactivateUserCommand;
 use AWurth\SilexUser\Command\DemoteUserCommand;
 use AWurth\SilexUser\Command\PromoteUserCommand;
-use Silex\Application;
 use Saxulum\Console\Provider\ConsoleProvider;
+use Silex\Application;
 
 $app = new Application([
     'debug' => true,
