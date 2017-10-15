@@ -2,7 +2,7 @@
 
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/ace47319-1c62-4a1b-a0d4-1274e6a6d887/mini.png)](https://insight.sensiolabs.com/projects/ace47319-1c62-4a1b-a0d4-1274e6a6d887) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/awurth/silex/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/awurth/silex/?branch=master)
 
-> This is a skeleton for the Silex PHP Micro-Framework to get started quickly
+This is a skeleton for the Silex PHP Micro-Framework to get started quickly
 
 ## Installation
 ### 1. Create project using Composer
@@ -15,7 +15,7 @@ $ composer create-project awurth/silex [app-name]
 $ bower install
 $ npm install
 ```
-This will create a `lib/` folder in `web/assets/` for jQuery and Semantic UI
+This will create a `lib/` folder in `public/assets/` for jQuery and Semantic UI
 
 ##### Install Gulp globally
 ``` bash

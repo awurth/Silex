@@ -11,7 +11,7 @@ const pump         = require('pump');
 
 let sassFiles = 'src/App/Resources/assets/scss/*.scss';
 let jsFiles   = 'src/App/Resources/assets/js/*.js';
-let dest      = 'web/assets/';
+let dest      = 'public/assets/';
 
 gulp.task('sass', function () {
     return gulp.src(sassFiles)
