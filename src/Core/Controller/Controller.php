@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Core\Controller;
 
+use App\Security\Entity\User;
 use Doctrine\ORM\EntityManager;
-use Security\Entity\User;
 use Silex\Application;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Form\FormFactory;
@@ -13,14 +13,15 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
-use Twig_Environment;
+use Twig\Environment;
 
 /**
  * @property EventDispatcher    dispatcher
  * @property RecursiveValidator validator
  * @property Session            session
- * @property Twig_Environment   twig
+ * @property Environment        twig
  * @property UrlGenerator       url_generator
+ * @property string             environment
  * @property string             root_dir
  */
 class Controller
@@ -135,7 +136,7 @@ class Controller
     /**
      * Gets the Twig service.
      *
-     * @return Twig_Environment
+     * @return Environment
      */
     public function getTwig()
     {

@@ -1,6 +1,6 @@
 <?php
 
-use Security\Entity\User;
+use App\Security\Entity\User;
 use Symfony\Component\Yaml\Yaml;
 
 $parameters = Yaml::parse(file_get_contents(__DIR__ . '/parameters.yml'))['parameters'];
@@ -24,7 +24,7 @@ $app['translator.cache_dir'] = $app['cache_dir'] . '/translations';
 $app['assets.version'] = 'v1';
 
 $app['twig.path'] = [
-    $app['root_dir'] . '/src/App/Resources/templates',
+    $app['root_dir'] . '/src/Core/Resources/templates',
     $app['root_dir'] . '/src/Security/Resources/templates'
 ];
 
@@ -36,11 +36,6 @@ $app['orm.proxies_dir'] = $app['cache_dir'] . '/doctrine/orm/proxies';
 $app['orm.em.options'] = [
     'mappings' => [
         [
-            'type'      => 'annotation',
-            'namespace' => 'App\Entity',
-            'path'      => $app['root_dir'] . '/src/App/Entity',
-            'use_simple_annotation_reader' => false
-        ], [
             'type'      => 'annotation',
             'namespace' => 'Security\Entity',
             'path'      => $app['root_dir'] . '/src/Security/Entity',

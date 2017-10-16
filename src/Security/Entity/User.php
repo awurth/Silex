@@ -1,6 +1,6 @@
 <?php
 
-namespace Security\Entity;
+namespace App\Security\Entity;
 
 use AWurth\SilexUser\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;

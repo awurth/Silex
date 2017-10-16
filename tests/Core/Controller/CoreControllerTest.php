@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\App\Controller;
+namespace Tests\Core\Controller;
 
 use Silex\WebTestCase;
 
-class AppControllerTest extends WebTestCase
+class CoreControllerTest extends WebTestCase
 {
     public function testHome()
     {
