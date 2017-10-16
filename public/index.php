@@ -1,10 +1,8 @@
 <?php
 
-use Silex\Application;
-
 require __DIR__ . '/../vendor/autoload.php';
 
-$app = new Application();
+$app = new Silex\Application();
 
 $app['root_dir'] = dirname(__DIR__);
 $app['environment'] = 'prod';
