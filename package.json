@@ -1,7 +1,7 @@
 {
   "name": "silex",
-  "version": "1.0.0",
-  "description": "Silex Micro-Framework skeleton",
+  "version": "1.4.0",
+  "description": "Silex Micro-Framework app skeleton",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/awurth/silex.git"
