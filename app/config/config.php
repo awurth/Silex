@@ -37,7 +37,7 @@ $app['orm.em.options'] = [
     'mappings' => [
         [
             'type'      => 'annotation',
-            'namespace' => 'Security\Entity',
+            'namespace' => 'App\Security\Entity',
             'path'      => $app['root_dir'] . '/src/Security/Entity',
             'use_simple_annotation_reader' => false
         ]
