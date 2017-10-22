@@ -1,6 +1,6 @@
 <?php
 
-use AWurth\SilexUser\Provider\SilexUserServiceProvider;
+use AWurth\Silex\User\Provider\UserServiceProvider;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
 use Silex\Provider as SP;
@@ -24,4 +24,4 @@ $app->register(new DoctrineOrmServiceProvider());
 $app->register(new DoctrineOrmManagerRegistryProvider());
 
 // https://github.com/awurth/silex-user
-$app->register(new SilexUserServiceProvider());
+$app->register(new UserServiceProvider());

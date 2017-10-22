@@ -7,7 +7,7 @@ This is an app skeleton for the Silex PHP Micro-Framework to get started quickly
 ## Features
 - [Doctrine ORM](http://www.doctrine-project.org/projects/orm.html) ([Doctrine ORM Service Provider](https://github.com/dflydev/dflydev-doctrine-orm-service-provider))
 - CSRF protection ([CSRF Service Provider](https://silex.symfony.com/doc/2.0/providers/csrf.html))
-- Security ([Security Service Provider](https://silex.symfony.com/doc/2.0/providers/security.html) + [Silex User Service Provider](https://github.com/awurth/silex-user))
+- Security ([Security Service Provider](https://silex.symfony.com/doc/2.0/providers/security.html)) and user management ([Silex User Service Provider](https://github.com/awurth/silex-user))
 - Validation ([Validator Service Provider](https://silex.symfony.com/doc/2.0/providers/validator.html))
 - Twig ([Twig Service Provider](https://silex.symfony.com/doc/2.0/providers/twig.html))
 - CSS Framework [Semantic UI](https://github.com/Semantic-Org/Semantic-UI)

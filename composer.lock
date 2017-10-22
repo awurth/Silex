@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "048d924ac1002e20f509ddf7af996325",
+    "content-hash": "da9b4ab7067f6f89a19728c78cd6d6c5",
     "packages": [
         {
             "name": "awurth/silex-user",
-            "version": "0.6.4",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/awurth/silex-user.git",
-                "reference": "96ea8be30a203d859fe6f99844e2726992f8229a"
+                "reference": "8ca79820d620c8bfbcd81667e92a1da916b9834c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awurth/silex-user/zipball/96ea8be30a203d859fe6f99844e2726992f8229a",
-                "reference": "96ea8be30a203d859fe6f99844e2726992f8229a",
+                "url": "https://api.github.com/repos/awurth/silex-user/zipball/8ca79820d620c8bfbcd81667e92a1da916b9834c",
+                "reference": "8ca79820d620c8bfbcd81667e92a1da916b9834c",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "AWurth\\SilexUser\\": "src/"
+                    "AWurth\\Silex\\User\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -62,7 +62,7 @@
                 }
             ],
             "description": "Provides user management for your Silex project",
-            "time": "2017-09-25T12:05:12+00:00"
+            "time": "2017-10-22T16:52:26+00:00"
         },
         {
             "name": "dflydev/doctrine-orm-service-provider",
@@ -2610,16 +2610,16 @@
         },
         {
             "name": "symfony/polyfill-intl-icu",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
-                "reference": "4aa0b65dc71a7369c1e7e6e2a3ca027d9decdb09"
+                "reference": "d2bb2ef00dd8605d6fbd4db53ed4af1395953497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/4aa0b65dc71a7369c1e7e6e2a3ca027d9decdb09",
-                "reference": "4aa0b65dc71a7369c1e7e6e2a3ca027d9decdb09",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/d2bb2ef00dd8605d6fbd4db53ed4af1395953497",
+                "reference": "d2bb2ef00dd8605d6fbd4db53ed4af1395953497",
                 "shasum": ""
             },
             "require": {
@@ -2632,7 +2632,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2664,20 +2664,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803"
+                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
-                "reference": "7c8fae0ac1d216eb54349e6a8baa57d515fe8803",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
+                "reference": "2ec8b39c38cb16674bbf3fea2b6ce5bf117e1296",
                 "shasum": ""
             },
             "require": {
@@ -2689,7 +2689,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2723,20 +2723,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/polyfill-php56",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php56.git",
-                "reference": "e85ebdef569b84e8709864e1a290c40f156b30ca"
+                "reference": "265fc96795492430762c29be291a371494ba3a5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/e85ebdef569b84e8709864e1a290c40f156b30ca",
-                "reference": "e85ebdef569b84e8709864e1a290c40f156b30ca",
+                "url": "https://api.github.com/repos/symfony/polyfill-php56/zipball/265fc96795492430762c29be291a371494ba3a5b",
+                "reference": "265fc96795492430762c29be291a371494ba3a5b",
                 "shasum": ""
             },
             "require": {
@@ -2746,7 +2746,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2779,20 +2779,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "b6482e68974486984f59449ecea1fbbb22ff840f"
+                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/b6482e68974486984f59449ecea1fbbb22ff840f",
-                "reference": "b6482e68974486984f59449ecea1fbbb22ff840f",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
+                "reference": "0442b9c0596610bd24ae7b5f0a6cdbbc16d9fcff",
                 "shasum": ""
             },
             "require": {
@@ -2802,7 +2802,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2838,20 +2838,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-14T15:44:48+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/polyfill-util",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-util.git",
-                "reference": "67925d1cf0b84bd234a83bebf26d4eb281744c6d"
+                "reference": "6e719200c8e540e0c0effeb31f96bdb344b94176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/67925d1cf0b84bd234a83bebf26d4eb281744c6d",
-                "reference": "67925d1cf0b84bd234a83bebf26d4eb281744c6d",
+                "url": "https://api.github.com/repos/symfony/polyfill-util/zipball/6e719200c8e540e0c0effeb31f96bdb344b94176",
+                "reference": "6e719200c8e540e0c0effeb31f96bdb344b94176",
                 "shasum": ""
             },
             "require": {
@@ -2860,7 +2860,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
@@ -2890,7 +2890,7 @@
                 "polyfill",
                 "shim"
             ],
-            "time": "2017-07-05T15:09:33+00:00"
+            "time": "2017-10-11T12:05:26+00:00"
         },
         {
             "name": "symfony/property-access",
@@ -3736,37 +3736,40 @@
     "packages-dev": [
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "doctrine/collections": "1.*",
-                "phpunit/phpunit": "~4.1"
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
-                }
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Create deep copies (clones) of your objects",
-            "homepage": "https://github.com/myclabs/DeepCopy",
             "keywords": [
                 "clone",
                 "copy",
@@ -3774,7 +3777,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12T18:52:22+00:00"
+            "time": "2017-10-19T19:58:43+00:00"
         },
         {
             "name": "phar-io/manifest",

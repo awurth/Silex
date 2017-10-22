@@ -1,6 +1,6 @@
 {
   "name": "silex",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Silex Micro-Framework app skeleton",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "homepage": "https://github.com/awurth/silex#readme",
   "devDependencies": {
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-babel": "^6.1.2",

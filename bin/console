@@ -3,12 +3,12 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use AWurth\SilexUser\Command\ActivateUserCommand;
-use AWurth\SilexUser\Command\ChangePasswordCommand;
-use AWurth\SilexUser\Command\CreateUserCommand;
-use AWurth\SilexUser\Command\DeactivateUserCommand;
-use AWurth\SilexUser\Command\DemoteUserCommand;
-use AWurth\SilexUser\Command\PromoteUserCommand;
+use AWurth\Silex\User\Command\ActivateUserCommand;
+use AWurth\Silex\User\Command\ChangePasswordCommand;
+use AWurth\Silex\User\Command\CreateUserCommand;
+use AWurth\Silex\User\Command\DeactivateUserCommand;
+use AWurth\Silex\User\Command\DemoteUserCommand;
+use AWurth\Silex\User\Command\PromoteUserCommand;
 use Saxulum\Console\Provider\ConsoleProvider;
 use Silex\Application;
 
