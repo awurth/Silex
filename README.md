@@ -13,6 +13,7 @@ This is an app skeleton for the Silex PHP Micro-Framework to get started quickly
 - CSS Framework [Semantic UI](https://github.com/Semantic-Org/Semantic-UI)
 - A **Gulpfile** with a watcher for *SASS* and *JS* files, and minification
 - Logs ([Monolog](https://github.com/Seldaek/monolog))
+- [Symfony Web Profiler](https://github.com/silexphp/Silex-WebProfiler)
 - Console commands for updating the database schema and creating users
 - Functionnal tests base ([PHPUnit](https://github.com/sebastianbergmann/phpunit))
 
