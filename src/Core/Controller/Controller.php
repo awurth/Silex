@@ -24,7 +24,7 @@ use Twig\Environment;
  * @property string             environment
  * @property string             root_dir
  */
-class Controller
+abstract class Controller
 {
     /**
      * @var Application
