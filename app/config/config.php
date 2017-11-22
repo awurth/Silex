@@ -1,6 +1,6 @@
 <?php
 
-use App\Security\Entity\User;
+use App\Entity\User;
 use Symfony\Component\Yaml\Yaml;
 
 $parameters = Yaml::parse(file_get_contents(__DIR__ . '/parameters.yml'))['parameters'];
@@ -36,8 +36,8 @@ $app['orm.em.options'] = [
     'mappings' => [
         [
             'type'      => 'annotation',
-            'namespace' => 'App\Security\Entity',
-            'path'      => $app['root_dir'] . '/src/Security/Entity',
+            'namespace' => 'App\Entity',
+            'path'      => $app['root_dir'] . '/src/App/Entity',
             'use_simple_annotation_reader' => false
         ]
     ]
@@ -52,7 +52,7 @@ $app['swiftmailer.options'] = [
     'auth_mode'  => $parameters['mailer_auth_mode']
 ];
 
-// https://github.com/awurth/silex-user
+// https://github.com/awurth/SilexUserBundle
 $app['silex_user.options'] = [
     'object_manager' => 'orm.em',
     'user_class'     => User::class,

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core\Controller;
+namespace App\Controller;
 
-use App\Security\Entity\User;
+use App\Entity\User;
 use Doctrine\ORM\EntityManager;
 use Silex\Application;
 use Symfony\Component\EventDispatcher\EventDispatcher;

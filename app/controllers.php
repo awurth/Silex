@@ -1,7 +1,7 @@
 <?php
 
 $controllers = [
-    'core.controller' => 'App\Core\Controller\CoreController'
+    'app.controller' => 'App\Controller\AppController'
 ];
 
 foreach ($controllers as $key => $class) {

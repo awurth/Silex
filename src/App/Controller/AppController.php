@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core\Controller;
+namespace App\Controller;
 
-class CoreController extends Controller
+class AppController extends Controller
 {
     public function homeAction()
     {
