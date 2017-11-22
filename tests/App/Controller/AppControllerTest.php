@@ -4,7 +4,7 @@ namespace Tests\App\Controller;
 
 use Silex\WebTestCase;
 
-class CoreControllerTest extends WebTestCase
+class AppControllerTest extends WebTestCase
 {
     public function testHome()
     {
