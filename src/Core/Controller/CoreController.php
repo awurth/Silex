@@ -6,6 +6,6 @@ class CoreController extends Controller
 {
     public function homeAction()
     {
-        return $this->render('Core/home.twig');
+        return $this->render('app/home.twig');
     }
 }

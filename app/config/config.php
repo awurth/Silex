@@ -24,8 +24,7 @@ $app['translator.cache_dir'] = $app['cache_dir'] . '/translations';
 $app['assets.version'] = 'v1';
 
 $app['twig.path'] = [
-    $app['root_dir'] . '/src/Core/Resources/templates',
-    $app['root_dir'] . '/src/Security/Resources/templates'
+    $app['root_dir'] . '/templates'
 ];
 
 $app['twig.options'] = [
