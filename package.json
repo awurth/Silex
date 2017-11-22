@@ -1,13 +1,13 @@
 {
   "name": "silex",
-  "version": "1.5.0",
-  "description": "Silex Micro-Framework app skeleton",
+  "version": "1.6.2",
+  "description": "Silex PHP Micro-Framework skeleton",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/awurth/silex.git"
+    "url": "git+https://github.com/awurth/Silex.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/awurth/silex#readme",
+  "homepage": "https://github.com/awurth/Silex#readme",
   "devDependencies": {
     "babel-preset-env": "^1.6.1",
     "gulp": "^3.9.1",
