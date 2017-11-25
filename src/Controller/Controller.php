@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityManager;
-use Silex\Application;
+use App\Application;
 use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Form\FormFactory;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Generator\UrlGenerator;
@@ -84,11 +87,23 @@ abstract class Controller
     }
 
     /**
+     * Get a service from the container
+     *
+     * @param string $service
+     *
+     * @return mixed
+     */
+    protected function get($service)
+    {
+        return $this->application[$service];
+    }
+
+    /**
      * Gets Doctrine Entity Manager.
      *
      * @return EntityManager
      */
-    public function getEntityManager()
+    protected function getEntityManager()
     {
         return $this->application['orm.em'];
     }
@@ -98,9 +113,9 @@ abstract class Controller
      *
      * @return string
      */
-    public function getEnv()
+    protected function getEnv()
     {
-        return $this->application['env'];
+        return $this->application->getEnvironment();
     }
 
     /**
@@ -108,7 +123,7 @@ abstract class Controller
      *
      * @return FormFactory
      */
-    public function getFormFactory()
+    protected function getFormFactory()
     {
         return $this->application['form.factory'];
     }
@@ -118,9 +133,9 @@ abstract class Controller
      *
      * @return string
      */
-    public function getRootDir()
+    protected function getRootDir()
     {
-        return $this->application['root_dir'];
+        return $this->application->getRootDir();
     }
 
     /**
@@ -128,7 +143,7 @@ abstract class Controller
      *
      * @return UrlGenerator
      */
-    public function getRouter()
+    protected function getRouter()
     {
         return $this->application['url_generator'];
     }
@@ -138,7 +153,7 @@ abstract class Controller
      *
      * @return Session
      */
-    public function getSession()
+    protected function getSession()
     {
         return $this->application['session'];
     }
@@ -148,7 +163,7 @@ abstract class Controller
      *
      * @return Environment
      */
-    public function getTwig()
+    protected function getTwig()
     {
         return $this->application['twig'];
     }
@@ -158,7 +173,7 @@ abstract class Controller
      *
      * @return User|null
      */
-    public function getUser()
+    protected function getUser()
     {
         $user = $this->application['security.token_storage']->getToken()->getUser();
         if ($user instanceof User) {
@@ -166,6 +181,57 @@ abstract class Controller
         }
 
         return null;
+    }
+
+    /**
+     * Adds a flash message.
+     *
+     * @param string $type
+     * @param string $message
+     */
+    protected function flash($type, $message)
+    {
+        $this->getSession()->getFlashBag()->add($type, $message);
+    }
+
+    /**
+     * Creates and returns a form builder instance.
+     *
+     * @param mixed                    $data    The initial data for the form
+     * @param array                    $options Options for the form
+     * @param string|FormTypeInterface $type    Type of the form
+     *
+     * @return FormBuilder
+     */
+    protected function form($data = null, array $options = [], $type = null)
+    {
+        return $this->application->form($type, $data, $options);
+    }
+
+    /**
+     * Checks if the attributes are granted against the current authentication token and optionally supplied object.
+     *
+     * @param mixed $attributes
+     * @param mixed $object
+     *
+     * @return bool
+     */
+    protected function isGranted($attributes, $object = null)
+    {
+        return $this->application->isGranted($attributes, $object);
+    }
+
+    /**
+     * Generates a path from the given parameters.
+     *
+     * @param string $route      The name of the route
+     * @param mixed  $parameters An array of parameters
+     *
+     * @return string
+     */
+    protected function path($route, $parameters = [])
+    {
+        return $this->application->path($route, $parameters);
     }
 
     /**
@@ -177,7 +243,7 @@ abstract class Controller
      *
      * @return RedirectResponse
      */
-    public function redirect($route, $parameters = [], $status = 302)
+    protected function redirect($route, $parameters = [], $status = 302)
     {
         return $this->application->redirect($this->path($route, $parameters), $status);
     }
@@ -190,83 +256,51 @@ abstract class Controller
      *
      * @return RedirectResponse
      */
-    public function redirectTo($url, $status = 302)
+    protected function redirectTo($url, $status = 302)
     {
         return $this->application->redirect($url, $status);
     }
 
     /**
-     * Generates a path from the given parameters.
+     * Renders a view and returns a Response.
      *
-     * @param string $route
-     * @param mixed $parameters
+     * @param string   $view       The view name
+     * @param array    $parameters An array of parameters to pass to the view
+     * @param Response $response   A Response instance
+     *
+     * @return Response
+     */
+    protected function render($view, array $parameters = [], Response $response = null)
+    {
+        return $this->application->render($view, $parameters, $response);
+    }
+
+    /**
+     * Translates the given message.
+     *
+     * @param string $id         The message id
+     * @param array  $parameters An array of parameters for the message
+     * @param string $domain     The domain for the message
+     * @param string $locale     The locale
      *
      * @return string
      */
-    public function path($route, $parameters = [])
+    protected function trans($id, array $parameters = [], $domain = 'messages', $locale = null)
     {
-        return $this->getRouter()->generate($route, $parameters, UrlGenerator::ABSOLUTE_PATH);
+        return $this->application->trans($id, $parameters, $domain, $locale);
     }
 
     /**
      * Generates an absolute URL from the given parameters.
      *
-     * @param string $route
-     * @param mixed $parameters
+     * @param string $route      The name of the route
+     * @param mixed  $parameters An array of parameters
      *
      * @return string
      */
-    public function url($route, $parameters = [])
+    protected function url($route, $parameters = [])
     {
-        return $this->getRouter()->generate($route, $parameters, UrlGenerator::ABSOLUTE_URL);
-    }
-
-    /**
-     * Renders a twig template.
-     *
-     * @param string $name
-     * @param array $context
-     *
-     * @return string
-     */
-    public function render($name, array $context = [])
-    {
-        return $this->getTwig()->render($name, $context);
-    }
-
-    /**
-     * Adds a flash message.
-     *
-     * @param string $type
-     * @param string $message
-     */
-    public function flash($type, $message)
-    {
-        $this->getSession()->getFlashBag()->add($type, $message);
-    }
-
-    /**
-     * Checks if user is granted a role.
-     *
-     * @param string $role
-     *
-     * @return bool
-     */
-    public function isGranted($role)
-    {
-        return $this->application['security.authorization_checker']->isGranted($role);
-    }
-
-    /**
-     * Get a service from the container
-     *
-     * @param string $service
-     *
-     * @return mixed
-     */
-    public function get($service)
-    {
-        return $this->application[$service];
+        return $this->application->url($route, $parameters);
     }
 
     /**
