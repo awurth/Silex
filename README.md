@@ -23,16 +23,17 @@ This is an app skeleton for the Silex PHP Micro-Framework to get started quickly
 $ composer create-project awurth/silex [project-name]
 ```
 
-Composer will ask you to provide some information for the database connection, that will be stored in `app/config/parameters.yml`. This file is ignored by Git so all developers working on the project can have their own configuration.
+### Setup environment variables
+Copy `.env.dist` to a `.env` file and change the values to your needs. This file is ignored by Git so all developers working on the project can have their own configuration.
 
 ### Download client-side libraries
 ``` bash
 $ npm install
 ```
-This will install Gulp dependencies and Semantic UI in `public/assets/lib/semantic/`.
+This will install Gulp dependencies in `node_modules/` and Semantic UI in `public/assets/lib/semantic/`.
 
 ### Gulp
-This boilerplate uses Gulp to manage assets. The CSS and Javascript files are located in `src/*/Resources/assets/`, so you have to use Gulp after creating your project to generate the minified files in `public/`, which will be ignored by Git.
+This boilerplate uses Gulp to manage assets. The CSS and Javascript files are located in `assets/`, so you have to use Gulp after creating your project to generate the files in `public/`, which will be ignored by Git.
 
 #### Install Gulp
 You can install Gulp globally on your system with the following command if you haven't done it yet
@@ -52,7 +53,7 @@ $ gulp
 ```
 
 ### Setup cache files permissions
-The boilerplate uses a cache system for Twig templates and the Monolog library for logging, so you have to make sure that PHP has write permissions on the `var/cache/` and `var/logs/` directories.
+The skeleton uses a cache system for Twig templates, translations, Doctrine, the web profiler and the Monolog library for logging, so you have to make sure that PHP has write permissions on the `var/cache/` and `var/log/` directories.
 
 ### Update your database schema
 ``` bash
@@ -68,7 +69,3 @@ $ php bin/console doctrine:database:create
 # With Symfony2 plugin
 $ sf doctrine:database:create
 ```
-
-### Check the installation
-Open your project in a browser and navigate to the `public/` folder to view the production environment.
-Go to `public/dev/` to use the development environment (displays errors details).
