@@ -38,17 +38,17 @@ $app['root_dir'] = dirname(__DIR__);
 
 $app->register(new ConsoleProvider());
 
-require __DIR__ . '/../app/providers.php';
+require __DIR__ . '/../config/providers.php';
 
-if (file_exists(__DIR__.'/../app/config/config.'.$app['env'].'.php')) {
-    require __DIR__.'/../app/config/config.'.$app['env'].'.php';
+if (file_exists(__DIR__.'/../config/config.'.$app['env'].'.php')) {
+    require __DIR__.'/../config/config.'.$app['env'].'.php';
 } else {
-    require __DIR__.'/../app/config/config.php';
+    require __DIR__.'/../config/config.php';
 }
 
-require __DIR__ . '/../app/controllers.php';
+require __DIR__ . '/../config/controllers.php';
 
-require __DIR__ . '/../app/routing.php';
+require __DIR__ . '/../config/routing.php';
 
 $app['console']->add(new ActivateUserCommand($app));
 $app['console']->add(new ChangePasswordCommand($app));
