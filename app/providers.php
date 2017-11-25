@@ -23,7 +23,7 @@ $app->register(new SP\TwigServiceProvider());
 $app->register(new DoctrineOrmServiceProvider());
 $app->register(new DoctrineOrmManagerRegistryProvider());
 
-// https://github.com/awurth/silex-user
+// https://github.com/awurth/SilexUserBundle
 $app->register(new UserServiceProvider());
 
 if ('dev' === $app['env']) {
