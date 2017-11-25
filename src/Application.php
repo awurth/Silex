@@ -17,11 +17,6 @@ class Application extends App
     /**
      * @var string
      */
-    protected $configurationDir;
-
-    /**
-     * @var string
-     */
     protected $environment;
 
     /**
@@ -59,11 +54,7 @@ class Application extends App
 
     public function getConfigurationDir()
     {
-        if (null === $this->configurationDir) {
-            $this->configurationDir = $this->getRootDir().'/config';
-        }
-
-        return $this->configurationDir;
+        return $this->getRootDir().'/config';
     }
 
     public function getEnvironment()
