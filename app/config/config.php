@@ -1,9 +1,9 @@
 <?php
 
 use App\Entity\User;
-use Symfony\Component\Yaml\Yaml;
+use Symfony\Component\Dotenv\Dotenv;
 
-$parameters = Yaml::parse(file_get_contents(__DIR__ . '/parameters.yml'))['parameters'];
+(new Dotenv())->load(__DIR__.'/../../.env');
 
 require __DIR__ . '/security.php';
 
@@ -12,11 +12,11 @@ $app['cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['environment'];
 $app['monolog.logfile'] = $app['root_dir'] . '/var/logs/' . $app['environment'] . '.log';
 
 $app['db.options'] = [
-    'driver'   => $parameters['database_driver'],
-    'host'     => $parameters['database_host'],
-    'user'     => $parameters['database_user'],
-    'password' => $parameters['database_password'],
-    'dbname'   => $parameters['database_name']
+    'driver'   => getenv('DATABASE_DRIVER'),
+    'host'     => getenv('DATABASE_HOST'),
+    'user'     => getenv('DATABASE_USER'),
+    'password' => getenv('DATABASE_PASSWORD'),
+    'dbname'   => getenv('DATABASE_NAME')
 ];
 
 $app['translator.cache_dir'] = $app['cache_dir'] . '/translations';
@@ -44,12 +44,12 @@ $app['orm.em.options'] = [
 ];
 
 $app['swiftmailer.options'] = [
-    'host'       => $parameters['mailer_host'],
-    'port'       => $parameters['mailer_port'],
-    'username'   => $parameters['mailer_user'],
-    'password'   => $parameters['mailer_password'],
-    'encryption' => $parameters['mailer_encryption'],
-    'auth_mode'  => $parameters['mailer_auth_mode']
+    'host'       => getenv('MAILER_HOST'),
+    'port'       => getenv('MAILER_PORT'),
+    'username'   => getenv('MAILER_USER'),
+    'password'   => getenv('MAILER_PASSWORD'),
+    'encryption' => getenv('MAILER_ENCRYPTION'),
+    'auth_mode'  => getenv('MAILER_AUTH_MODE')
 ];
 
 // https://github.com/awurth/SilexUserBundle
@@ -60,5 +60,5 @@ $app['silex_user.options'] = [
     'use_templates'  => false,
     'use_authentication_listener'          => false,
     'registration.confirmation.enabled'    => false,
-    'registration.confirmation.from_email' => $parameters['mailer_user']
+    'registration.confirmation.from_email' => getenv('MAILER_USER')
 ];
