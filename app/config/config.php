@@ -37,7 +37,7 @@ $app['orm.em.options'] = [
         [
             'type'      => 'annotation',
             'namespace' => 'App\Entity',
-            'path'      => $app['root_dir'] . '/src/App/Entity',
+            'path'      => $app['root_dir'] . '/src/Entity',
             'use_simple_annotation_reader' => false
         ]
     ]
