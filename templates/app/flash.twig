@@ -9,11 +9,11 @@
                     <ul class="list">
                         {# For all flash messages with this type #}
                         {% for idx, message in messages %}
-                            <li>{{ message }}</li>
+                            <li>{{ message|trans }}</li>
                         {% endfor %}
                     </ul>
                 {% else %}
-                    <p>{{ messages|first }}</p>
+                    <p>{{ messages|first|trans }}</p>
                 {% endif %}
             </div>
         {% endfor %}
