@@ -21,7 +21,7 @@ use Twig\Environment;
  * @property Session            session
  * @property Environment        twig
  * @property UrlGenerator       url_generator
- * @property string             environment
+ * @property string             env
  * @property string             root_dir
  */
 abstract class Controller
