@@ -5,6 +5,7 @@
 {% block title %}{{ parent() }} - {{ 'login.title'|trans }}{% endblock %}
 
 {% block body %}
+
 <div class="ui container">
     <h1 class="ui header">{{ 'login.title'|trans }}</h1>
     <form action="{{ path('silex_user.login_check') }}" method="post" class="ui error form">
