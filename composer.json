@@ -22,7 +22,7 @@
         }
     },
     "require": {
-        "php": "^5.5.9|>=7.0.8",
+        "php": ">=7.0.8",
         "awurth/silex-user": "^1.0",
         "dflydev/doctrine-orm-service-provider": "^2.0",
         "doctrine/dbal": "^2.5",

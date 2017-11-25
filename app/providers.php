@@ -25,3 +25,8 @@ $app->register(new DoctrineOrmManagerRegistryProvider());
 
 // https://github.com/awurth/silex-user
 $app->register(new UserServiceProvider());
+
+if ('dev' === $app['env']) {
+    $app->register(new SP\VarDumperServiceProvider());
+    $app->register(new SP\WebProfilerServiceProvider());
+}

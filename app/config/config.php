@@ -1,22 +1,19 @@
 <?php
 
 use App\Entity\User;
-use Symfony\Component\Dotenv\Dotenv;
-
-(new Dotenv())->load(__DIR__.'/../../.env');
 
 require __DIR__ . '/security.php';
 
-$app['cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['environment'];
+$app['cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['env'];
 
-$app['monolog.logfile'] = $app['root_dir'] . '/var/logs/' . $app['environment'] . '.log';
+$app['monolog.logfile'] = $app['root_dir'] . '/var/logs/' . $app['env'] . '.log';
 
 $app['db.options'] = [
-    'driver'   => getenv('DATABASE_DRIVER'),
-    'host'     => getenv('DATABASE_HOST'),
-    'user'     => getenv('DATABASE_USER'),
-    'password' => getenv('DATABASE_PASSWORD'),
-    'dbname'   => getenv('DATABASE_NAME')
+    'driver'   => $_SERVER['APP_DATABASE_DRIVER'],
+    'host'     => $_SERVER['APP_DATABASE_HOST'],
+    'user'     => $_SERVER['APP_DATABASE_USER'],
+    'password' => $_SERVER['APP_DATABASE_PASSWORD'],
+    'dbname'   => $_SERVER['APP_DATABASE_NAME']
 ];
 
 $app['translator.cache_dir'] = $app['cache_dir'] . '/translations';
@@ -44,12 +41,12 @@ $app['orm.em.options'] = [
 ];
 
 $app['swiftmailer.options'] = [
-    'host'       => getenv('MAILER_HOST'),
-    'port'       => getenv('MAILER_PORT'),
-    'username'   => getenv('MAILER_USER'),
-    'password'   => getenv('MAILER_PASSWORD'),
-    'encryption' => getenv('MAILER_ENCRYPTION'),
-    'auth_mode'  => getenv('MAILER_AUTH_MODE')
+    'host'       => $_SERVER['APP_MAILER_HOST'],
+    'port'       => $_SERVER['APP_MAILER_PORT'],
+    'username'   => $_SERVER['APP_MAILER_USER'],
+    'password'   => $_SERVER['APP_MAILER_PASSWORD'],
+    'encryption' => $_SERVER['APP_MAILER_ENCRYPTION'],
+    'auth_mode'  => $_SERVER['APP_MAILER_AUTH_MODE']
 ];
 
 // https://github.com/awurth/SilexUserBundle
@@ -60,5 +57,5 @@ $app['silex_user.options'] = [
     'use_templates'  => false,
     'use_authentication_listener'          => false,
     'registration.confirmation.enabled'    => false,
-    'registration.confirmation.from_email' => getenv('MAILER_USER')
+    'registration.confirmation.from_email' => $_SERVER['APP_MAILER_USER']
 ];

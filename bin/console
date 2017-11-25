@@ -1,8 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
-
 use AWurth\Silex\User\Command\ActivateUserCommand;
 use AWurth\Silex\User\Command\ChangePasswordCommand;
 use AWurth\Silex\User\Command\CreateUserCommand;
@@ -11,18 +9,42 @@ use AWurth\Silex\User\Command\DemoteUserCommand;
 use AWurth\Silex\User\Command\PromoteUserCommand;
 use Saxulum\Console\Provider\ConsoleProvider;
 use Silex\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Debug\Debug;
+use Symfony\Component\Dotenv\Dotenv;
 
-$app = new Application([
-    'debug' => true,
-    'environment' => 'dev',
-    'root_dir' => dirname(__DIR__)
-]);
+require __DIR__ . '/../vendor/autoload.php';
+
+if (!isset($_SERVER['APP_ENV'])) {
+    if (!class_exists(Dotenv::class)) {
+        throw new \RuntimeException('APP_ENV environment variable is not defined. You need to define environment variables for configuration or add "symfony/dotenv" as a Composer dependency to load variables from a .env file.');
+    }
+    (new Dotenv())->load(__DIR__.'/../.env');
+}
+
+$input = new ArgvInput();
+$env = $input->getParameterOption(['--env', '-e'], $_SERVER['APP_ENV'] ?? 'dev');
+$debug = ($_SERVER['APP_DEBUG'] ?? ('prod' !== $env)) && !$input->hasParameterOption(['--no-debug', '']);
+
+if ($debug) {
+    Debug::enable();
+}
+
+$app = new Application();
+
+$app['debug'] = $debug;
+$app['env'] = $_SERVER['APP_ENV'] ?? 'dev';
+$app['root_dir'] = dirname(__DIR__);
 
 $app->register(new ConsoleProvider());
 
 require __DIR__ . '/../app/providers.php';
 
-require __DIR__ . '/../app/config/config.php';
+if (file_exists(__DIR__.'/../app/config/config.'.$app['env'].'.php')) {
+    require __DIR__.'/../app/config/config.'.$app['env'].'.php';
+} else {
+    require __DIR__.'/../app/config/config.php';
+}
 
 require __DIR__ . '/../app/controllers.php';
 
