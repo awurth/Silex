@@ -2,11 +2,9 @@
 
 use App\Entity\User;
 
-require __DIR__ . '/security.php';
+require __DIR__.'/security.php';
 
-$app['cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['env'];
-
-$app['monolog.logfile'] = $app['root_dir'] . '/var/log/' . $app['env'] . '.log';
+$app['monolog.logfile'] = $app->getLogDir().'/'.$app->getEnvironment().'.log';
 
 $app['db.options'] = [
     'driver'   => $_SERVER['APP_DATABASE_DRIVER'],
@@ -16,25 +14,25 @@ $app['db.options'] = [
     'dbname'   => $_SERVER['APP_DATABASE_NAME']
 ];
 
-$app['translator.cache_dir'] = $app['cache_dir'] . '/translations';
+$app['translator.cache_dir'] = $app->getCacheDir().'/translations';
 
 $app['assets.version'] = 'v1';
 
 $app['twig.path'] = [
-    $app['root_dir'] . '/templates'
+    $app->getRootDir().'/templates'
 ];
 
 $app['twig.options'] = [
-    'cache' => $app['cache_dir'] . '/twig'
+    'cache' => $app->getCacheDir().'/twig'
 ];
 
-$app['orm.proxies_dir'] = $app['cache_dir'] . '/doctrine/orm/proxies';
+$app['orm.proxies_dir'] = $app->getCacheDir().'/doctrine/orm/proxies';
 $app['orm.em.options'] = [
     'mappings' => [
         [
             'type'      => 'annotation',
             'namespace' => 'App\Entity',
-            'path'      => $app['root_dir'] . '/src/Entity',
+            'path'      => $app->getRootDir().'/src/Entity',
             'use_simple_annotation_reader' => false
         ]
     ]

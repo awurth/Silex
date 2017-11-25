@@ -4,7 +4,7 @@ require __DIR__ . '/config.dev.php';
 
 $app['db.options'] = [
     'driver' => 'pdo_sqlite',
-    'path'   => $app['cache_dir'] . '/test.db'
+    'path'   => $app->getCacheDir().'/test.db'
 ];
 
 $app['session.test'] = true;

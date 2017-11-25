@@ -1,6 +1,6 @@
 <?php
 
-use Silex\Application;
+use App\Application;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -13,28 +13,11 @@ if (!isset($_SERVER['APP_ENV'])) {
     (new Dotenv())->load(__DIR__.'/../.env');
 }
 
-if ($debug = $_SERVER['APP_DEBUG'] ?? ('prod' !== ($_SERVER['APP_ENV'] ?? 'dev'))) {
+$env = $_SERVER['APP_ENV'] ?? 'dev';
+$debug = $_SERVER['APP_DEBUG'] ?? ('prod' !== $env);
+
+if ($debug) {
     Debug::enable();
 }
 
-$app = new Application();
-
-$app['debug'] = $debug;
-$app['env'] = $_SERVER['APP_ENV'] ?? 'dev';
-$app['root_dir'] = dirname(__DIR__);
-
-require __DIR__.'/../config/providers.php';
-
-if (file_exists(__DIR__.'/../config/config.'.$app['env'].'.php')) {
-    require __DIR__.'/../config/config.'.$app['env'].'.php';
-} else {
-    require __DIR__.'/../config/config.php';
-}
-
-require __DIR__.'/../config/controllers.php';
-
-require __DIR__.'/../config/routes.php';
-
-require __DIR__.'/../config/handlers.php';
-
-$app->run();
+(new Application($env, $debug))->run();

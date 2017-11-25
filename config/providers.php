@@ -1,32 +1,27 @@
 <?php
 
-use AWurth\Silex\User\Provider\UserServiceProvider;
-use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
-use Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider;
-use Silex\Provider as SP;
+return [
+    Silex\Provider\MonologServiceProvider::class           => ['all' => true],
+    Silex\Provider\ServiceControllerServiceProvider::class => ['all' => true],
+    Silex\Provider\SessionServiceProvider::class           => ['all' => true],
+    Silex\Provider\ValidatorServiceProvider::class         => ['all' => true],
+    Silex\Provider\FormServiceProvider::class              => ['all' => true],
+    Silex\Provider\CsrfServiceProvider::class              => ['all' => true],
+    Silex\Provider\LocaleServiceProvider::class            => ['all' => true],
+    Silex\Provider\TranslationServiceProvider::class       => ['all' => true],
+    Silex\Provider\DoctrineServiceProvider::class          => ['all' => true],
+    Silex\Provider\HttpFragmentServiceProvider::class      => ['all' => true],
+    Silex\Provider\SwiftmailerServiceProvider::class       => ['all' => true],
+    Silex\Provider\SecurityServiceProvider::class          => ['all' => true],
+    Silex\Provider\AssetServiceProvider::class             => ['all' => true],
+    Silex\Provider\TwigServiceProvider::class              => ['all' => true],
 
-$app->register(new SP\MonologServiceProvider());
-$app->register(new SP\ServiceControllerServiceProvider());
-$app->register(new SP\SessionServiceProvider());
-$app->register(new SP\ValidatorServiceProvider());
-$app->register(new SP\FormServiceProvider());
-$app->register(new SP\CsrfServiceProvider());
-$app->register(new SP\LocaleServiceProvider());
-$app->register(new SP\TranslationServiceProvider());
-$app->register(new SP\DoctrineServiceProvider());
-$app->register(new SP\HttpFragmentServiceProvider());
-$app->register(new SP\SwiftmailerServiceProvider());
-$app->register(new SP\SecurityServiceProvider());
-$app->register(new SP\AssetServiceProvider());
-$app->register(new SP\TwigServiceProvider());
+    Silex\Provider\VarDumperServiceProvider::class   => ['dev' => true],
+    Silex\Provider\WebProfilerServiceProvider::class => ['dev' => true],
 
-$app->register(new DoctrineOrmServiceProvider());
-$app->register(new DoctrineOrmManagerRegistryProvider());
+    Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider::class                        => ['all' => true],
+    Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider::class => ['all' => true],
 
-// https://github.com/awurth/SilexUserBundle
-$app->register(new UserServiceProvider());
-
-if ('dev' === $app['env']) {
-    $app->register(new SP\VarDumperServiceProvider());
-    $app->register(new SP\WebProfilerServiceProvider());
-}
+    // https://github.com/awurth/SilexUserBundle
+    AWurth\Silex\User\Provider\UserServiceProvider::class => ['all' => true]
+];
