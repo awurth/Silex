@@ -29,7 +29,7 @@ require __DIR__ . '/../config/config.test.php';
 
 require __DIR__ . '/../config/controllers.php';
 
-require __DIR__ . '/../config/routing.php';
+require __DIR__ . '/../config/routes.php';
 
 require __DIR__.'/../config/handlers.php';
 

@@ -33,7 +33,7 @@ if (file_exists(__DIR__.'/../config/config.'.$app['env'].'.php')) {
 
 require __DIR__.'/../config/controllers.php';
 
-require __DIR__.'/../config/routing.php';
+require __DIR__.'/../config/routes.php';
 
 require __DIR__.'/../config/handlers.php';
 
