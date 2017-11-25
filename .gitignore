@@ -3,11 +3,11 @@ vendor/
 node_modules/
 var/*
 !var/cache
-!var/logs
+!var/log
 var/cache/*
-var/logs/*
+var/log/*
 !var/cache/.gitkeep
-!var/logs/.gitkeep
+!var/log/.gitkeep
 public/assets/lib/*
 public/assets/css/*
 public/assets/js/*

@@ -6,7 +6,7 @@ require __DIR__ . '/security.php';
 
 $app['cache_dir'] = $app['root_dir'] . '/var/cache/' . $app['env'];
 
-$app['monolog.logfile'] = $app['root_dir'] . '/var/logs/' . $app['env'] . '.log';
+$app['monolog.logfile'] = $app['root_dir'] . '/var/log/' . $app['env'] . '.log';
 
 $app['db.options'] = [
     'driver'   => $_SERVER['APP_DATABASE_DRIVER'],
