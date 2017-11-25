@@ -94,6 +94,16 @@ abstract class Controller
     }
 
     /**
+     * Gets the environment.
+     *
+     * @return string
+     */
+    public function getEnv()
+    {
+        return $this->application['env'];
+    }
+
+    /**
      * Gets the Form Factory.
      *
      * @return FormFactory
