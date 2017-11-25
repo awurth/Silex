@@ -88,10 +88,10 @@ class Application extends App
     public function loadConfiguration()
     {
         $app = $this;
-        if (file_exists($this->getConfigurationDir().'/config.'.$app->getEnvironment().'.php')) {
-            require $this->getConfigurationDir().'/config.'.$app->getEnvironment().'.php';
+        if (file_exists($this->getConfigurationDir().'/container.'.$app->getEnvironment().'.php')) {
+            require $this->getConfigurationDir().'/container.'.$app->getEnvironment().'.php';
         } else {
-            require $this->getConfigurationDir().'/config.php';
+            require $this->getConfigurationDir().'/container.php';
         }
     }
 

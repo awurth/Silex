@@ -4,7 +4,7 @@ use App\Entity\User;
 
 require __DIR__.'/security.php';
 
-$app['monolog.logfile'] = $app->getLogDir().'/'.$app->getEnvironment().'.log';
+$app['assets.version'] = 'v1';
 
 $app['db.options'] = [
     'driver'   => $_SERVER['APP_DATABASE_DRIVER'],
@@ -14,18 +14,9 @@ $app['db.options'] = [
     'dbname'   => $_SERVER['APP_DATABASE_NAME']
 ];
 
-$app['translator.cache_dir'] = $app->getCacheDir().'/translations';
+$app['monolog.logfile'] = $app->getLogDir().'/'.$app->getEnvironment().'.log';
 
-$app['assets.version'] = 'v1';
-
-$app['twig.path'] = [
-    $app->getRootDir().'/templates'
-];
-
-$app['twig.options'] = [
-    'cache' => $app->getCacheDir().'/twig'
-];
-
+// https://github.com/dflydev/dflydev-doctrine-orm-service-provider
 $app['orm.proxies_dir'] = $app->getCacheDir().'/doctrine/orm/proxies';
 $app['orm.em.options'] = [
     'mappings' => [
@@ -38,15 +29,6 @@ $app['orm.em.options'] = [
     ]
 ];
 
-$app['swiftmailer.options'] = [
-    'host'       => $_SERVER['APP_MAILER_HOST'],
-    'port'       => $_SERVER['APP_MAILER_PORT'],
-    'username'   => $_SERVER['APP_MAILER_USER'],
-    'password'   => $_SERVER['APP_MAILER_PASSWORD'],
-    'encryption' => $_SERVER['APP_MAILER_ENCRYPTION'],
-    'auth_mode'  => $_SERVER['APP_MAILER_AUTH_MODE']
-];
-
 // https://github.com/awurth/SilexUserBundle
 $app['silex_user.options'] = [
     'object_manager' => 'orm.em',
@@ -56,4 +38,23 @@ $app['silex_user.options'] = [
     'use_authentication_listener'          => false,
     'registration.confirmation.enabled'    => false,
     'registration.confirmation.from_email' => $_SERVER['APP_MAILER_USER']
+];
+
+$app['swiftmailer.options'] = [
+    'host'       => $_SERVER['APP_MAILER_HOST'],
+    'port'       => $_SERVER['APP_MAILER_PORT'],
+    'username'   => $_SERVER['APP_MAILER_USER'],
+    'password'   => $_SERVER['APP_MAILER_PASSWORD'],
+    'encryption' => $_SERVER['APP_MAILER_ENCRYPTION'],
+    'auth_mode'  => $_SERVER['APP_MAILER_AUTH_MODE']
+];
+
+$app['translator.cache_dir'] = $app->getCacheDir().'/translations';
+
+$app['twig.options'] = [
+    'cache' => $app->getCacheDir().'/twig'
+];
+
+$app['twig.path'] = [
+    $app->getRootDir().'/templates'
 ];

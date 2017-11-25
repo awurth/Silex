@@ -1,6 +1,7 @@
 <?php
 
 return [
+    // Global providers
     Silex\Provider\MonologServiceProvider::class           => ['all' => true],
     Silex\Provider\ServiceControllerServiceProvider::class => ['all' => true],
     Silex\Provider\SessionServiceProvider::class           => ['all' => true],
@@ -16,12 +17,16 @@ return [
     Silex\Provider\AssetServiceProvider::class             => ['all' => true],
     Silex\Provider\TwigServiceProvider::class              => ['all' => true],
 
+    // Development providers
     Silex\Provider\VarDumperServiceProvider::class   => ['dev' => true],
     Silex\Provider\WebProfilerServiceProvider::class => ['dev' => true],
 
-    Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider::class                        => ['all' => true],
-    Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider::class => ['all' => true],
+    // Community providers
 
+    // https://github.com/dflydev/dflydev-doctrine-orm-service-provider
+    Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider::class                        => ['all' => true],
+    // https://github.com/saxulum/saxulum-doctrine-orm-manager-registry-provider
+    Saxulum\DoctrineOrmManagerRegistry\Provider\DoctrineOrmManagerRegistryProvider::class => ['all' => true],
     // https://github.com/awurth/SilexUserBundle
-    AWurth\Silex\User\Provider\UserServiceProvider::class => ['all' => true]
+    AWurth\Silex\User\Provider\UserServiceProvider::class                                 => ['all' => true]
 ];
