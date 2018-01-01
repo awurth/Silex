@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
-    <title>{% block title %}Silex skeleton{% endblock %}</title>
+    <title>{% block title %}Silex Skeleton{% endblock %}</title>
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('assets/lib/semantic/dist/semantic.min.css') }}">
@@ -15,11 +15,11 @@
 </head>
 <body>
 {% block navbar %}
-    {% include 'app/navbar.twig' %}
+    {% include 'app/_navbar.twig' %}
 {% endblock %}
 
 {% block flash %}
-    {% include 'app/flash.twig' %}
+    {% include 'app/_flash.twig' %}
 {% endblock %}
 
 {% block body %}{% endblock %}
