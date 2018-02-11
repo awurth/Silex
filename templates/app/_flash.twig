@@ -1,21 +1,17 @@
 {# Check if we got some flash messages #}
 {% if app.session.flashbag.peekAll()|length > 0 %}
-    <div class="ui container flash">
+    <div class="container">
         {# Loop all types of flash messages #}
         {% for type, messages in app.session.flashbag.all() %}
-            <div class="ui {{ type }} message">
-                <i class="close icon"></i>
-                {% if messages|length > 1 %}
-                    <ul class="list">
-                        {# For all flash messages with this type #}
-                        {% for idx, message in messages %}
-                            <li>{{ message|trans }}</li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p>{{ messages|first|trans }}</p>
-                {% endif %}
-            </div>
+            {# For all flash messages with this type #}
+            {% for idx, message in messages %}
+                <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                    {{ message|trans }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
         {% endfor %}
     </div>
 {% endif %}

@@ -1,6 +1,6 @@
 {
   "name": "silex",
-  "version": "1.6.2",
+  "version": "1.8.0",
   "description": "Silex PHP Micro-Framework skeleton",
   "repository": {
     "type": "git",
@@ -9,19 +9,20 @@
   "license": "MIT",
   "homepage": "https://github.com/awurth/Silex#readme",
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-clean-css": "^3.9.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^3.0.0",
-    "pump": "^1.0.2"
+    "@symfony/webpack-encore": "^0.18.0",
+    "autoprefixer": "^7.2.6",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "webpack-notifier": "^1.5.1"
   },
   "dependencies": {
-    "semantic-ui": "^2.2.13"
-  }
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ios >= 8"
+  ]
 }

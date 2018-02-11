@@ -6,24 +6,24 @@
 
 {% block body %}
 
-<div class="ui container">
-    <h1 class="ui header">{{ 'login.title'|trans }}</h1>
-    <form action="{{ path('silex_user.login_check') }}" method="post" class="ui error form">
+<div class="container">
+    <h1>{{ 'login.title'|trans }}</h1>
+    <form action="{{ path('silex_user.login_check') }}" method="post">
         {{ error }}
-        <div class="field">
+        <div class="form-group">
             <label for="username">{{ 'form.username'|trans }}</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" required>
+            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required>
         </div>
-        <div class="field">
+        <div class="form-group">
             <label for="password">{{ 'form.password'|trans }}</label>
-            <input type="password" id="password" name="_password" required>
+            <input type="password" class="form-control" id="password" name="_password" required>
         </div>
 
         {% if csrf_token %}
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
         {% endif %}
 
-        <input type="submit" class="ui teal circular button">
+        <input type="submit" class="btn btn-primary">
     </form>
 </div>
 

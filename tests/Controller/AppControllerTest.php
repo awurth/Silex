@@ -12,7 +12,7 @@ class AppControllerTest extends WebTestCase
         $client->request('GET', '/');
 
         $this->assertTrue($client->getResponse()->isOk());
-        $this->assertContains('<h1 class="ui header">Home</h1>', $client->getResponse()->getContent());
+        $this->assertContains('<h1>Home</h1>', $client->getResponse()->getContent());
     }
 
     /**

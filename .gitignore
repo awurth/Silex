@@ -8,9 +8,5 @@ var/cache/*
 var/log/*
 !var/cache/.gitkeep
 !var/log/.gitkeep
-public/assets/lib/*
-public/assets/css/*
-public/assets/js/*
-!public/assets/lib/.gitkeep
-!public/assets/css/.gitkeep
-!public/assets/js/.gitkeep
+public/build/*
+!public/build/.gitkeep

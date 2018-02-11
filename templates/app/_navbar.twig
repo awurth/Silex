@@ -1,18 +1,20 @@
-<nav class="ui borderless top fixed menu">
-    <a href="{{ path('home') }}" class="header item">Silex skeleton</a>
-    <div class="right menu">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{{ path('home') }}">Silex skeleton</a>
+    <ul class="navbar-nav mr-auto">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <div class="header item">{{ app.user.username }}</div>
-            <div class="item">
-                <a href="{{ path('logout') }}" class="ui teal circular button">Logout</a>
-            </div>
+            <li class="nav-item">
+                <span class="navbar-text">{{ app.user.username }}</span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">Logout</a>
+            </li>
         {% else %}
-            <div class="item">
-                <a href="{{ path('silex_user.login') }}" class="ui circular button">Login</a>
-            </div>
-            <div class="item">
-                <a href="{{ path('silex_user.register') }}" class="ui teal circular button">Register</a>
-            </div>
+            <li class="nav-item">
+                <a href="{{ path('silex_user.login') }}" class="nav-link">Login</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('silex_user.register') }}" class="nav-link">Register</a>
+            </li>
         {% endif %}
-    </div>
+    </ul>
 </nav>
