@@ -2,7 +2,7 @@
 
 use App\Entity\User;
 
-require __DIR__.'/security.php';
+require $app->getConfigurationDir().'/security.php';
 
 $app['assets.version'] = 'v1';
 
