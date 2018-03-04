@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'app.controller' => 'App\Controller\AppController'
+    'app.controller' => App\Controller\AppController::class
 ];
